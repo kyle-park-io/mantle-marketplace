@@ -9,13 +9,19 @@
   },
   "author": "kyle-park-io <andy3638@naver.com>",
   "scripts": {
-    "dev": "next dev",
     "build": "tsx scripts/sync.ts && next build",
-    "start": "next start",
-    "sync": "tsx scripts/sync.ts",
+    "check-files": "ts-node .claude/hooks/check-project-files.ts",
+    "dev": "next dev",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "check-files": "ts-node .claude/hooks/check-project-files.ts"
+    "sort": "sort-package-json",
+    "start": "next start",
+    "sync": "tsx scripts/sync.ts"
+  },
+  "dependencies": {
+    "next": "^15.5.14",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
   },
   "devDependencies": {
     "@types/node": "^25.5.0",
@@ -33,10 +39,5 @@
   "engines": {
     "node": ">=24.0.0",
     "pnpm": ">=10.0.0"
-  },
-  "dependencies": {
-    "next": "^15.5.14",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4"
   }
 }
