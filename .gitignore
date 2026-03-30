@@ -35,3 +35,7 @@ data/
 
 # Local request/task notes
 REQUEST.md
+
+# Playwright
+playwright-report/
+test-results/
