@@ -1,0 +1,9 @@
+.claude/
+.worktrees/
+docs/
+scripts/
+request.md
+*.md
+!README.md
+!README.kr.md
+!README.zh.md
