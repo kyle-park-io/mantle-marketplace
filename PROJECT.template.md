@@ -54,7 +54,7 @@ date: YYYY-MM-DD
 <!-- List repos to sync from, and whether they are official/community. -->
 
 | Repo | Category | Official |
-|------|----------|----------|
+| ---- | -------- | -------- |
 |      |          |          |
 
 ## Domain Notes
