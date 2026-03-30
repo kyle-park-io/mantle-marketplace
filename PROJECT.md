@@ -46,10 +46,10 @@ A catalog site where developers and end users can browse plugins, skills, and MC
 
 ## GitHub Sync
 
-| Repo | Category | Official |
-|------|----------|----------|
-| `mantle-xyz/mantle-skills` | skills | ✓ |
-| `mantle-xyz/mantle-agent-scaffold` | plugins | ✓ |
+| Repo                               | Category | Official |
+| ---------------------------------- | -------- | -------- |
+| `mantle-xyz/mantle-skills`         | skills   | ✓        |
+| `mantle-xyz/mantle-agent-scaffold` | plugins  | ✓        |
 
 ## Domain Notes
 
