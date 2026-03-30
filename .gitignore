@@ -8,6 +8,13 @@ node_modules/
 
 # Build output
 dist/
+out/
+
+# Next.js
+.next/
+
+# Generated data (sync output)
+data/
 
 # TypeScript cache
 *.tsbuildinfo
@@ -25,3 +32,6 @@ dist/
 
 # Git worktrees
 .worktrees/
+
+# Local request/task notes
+REQUEST.md
