@@ -1,26 +1,27 @@
 ---
-title: Claude Template
-description: 内置插件、规则和钩子的开箱即用 Claude Code 配置模板。
+title: Mantle Agent Marketplace
+description: 浏览并安装 Mantle 生态系统的插件、技能和 MCP 工具。
 author: Kyle (https://github.com/kyle-park-io)
 date: 2026-03-30
 ---
 
 **Languages**: [English](README.md) | [한국어](README.kr.md) | 中文
 
-# Claude Template
+# Mantle Agent Marketplace
 
-开箱即用的 Claude Code 配置模板。克隆此仓库并根据您的工作流程进行自定义。
+> 浏览并安装 Mantle 生态系统的插件、技能和 MCP 工具。
 
 ## 概述
 
-本模板提供预配置的 Claude Code 环境，内置插件、规则、钩子和代码规范，可直接克隆并应用于任何项目。
+Mantle Agent Marketplace 是一个基于 Next.js 的站点，让开发者可以在 Mantle 生态系统平台（Mantle、Bybit、Byreal）中发现并安装 Claude Code 插件、可复用技能和 MCP 工具。数据在构建时从 GitHub 拉取，并通过 GitHub Actions 每小时刷新一次。官方 Mantle 项目以紫色卡片和 ✓ OFFICIAL 徽章加以区分。
 
 ## 主要功能
 
-- 预安装插件（frontend-design、feature-dev、pr-review-toolkit 等）
-- 涵盖提交、PR、代码、格式化和许可证的规范规则
-- 自动格式化及缺失文件检测钩子
-- 开箱即用的 pnpm + TypeScript 配置
+- 两级导航：平台标签页（Mantle / Bybit / Byreal）和类别标签页（插件 / 技能 / MCP）
+- 官方项目以紫色卡片和 ✓ OFFICIAL 徽章突出显示
+- 一键复制安装命令到剪贴板
+- 构建时 GitHub 数据同步——无需运行时数据库
+- GitHub Actions 定时任务每小时触发增量构建，保持列表内容最新
 
 ## 快速开始
 
@@ -28,60 +29,43 @@ date: 2026-03-30
 
 - Node.js >= 24.0.0
 - pnpm >= 10.0.0
-- Claude Code CLI
+- GitHub 个人访问令牌（`GITHUB_PERSONAL_ACCESS_TOKEN`），用于避免 API 速率限制
 
 ### 安装
 
 ```bash
-git clone git@github.com:kyle-park-io/claude-template.git
-cd claude-template
+git clone git@github.com:kyle-park-io/mantle-marketplace.git
+cd mantle-marketplace
 pnpm install
+cp .env.example .env
+# 在 .env 中填入 GITHUB_PERSONAL_ACCESS_TOKEN
+pnpm sync
+pnpm dev
 ```
 
 ### 使用方法
 
-1. 编辑 `.claude/settings.json` 调整模型、推理强度和插件
-2. 将 `CLAUDE.template.md` 复制为 `CLAUDE.md`，填入项目专属指南
-3. 将 `.env.example` 复制为 `.env`，填入所需令牌
-
-## 项目结构
-
-```
-.
-├── .claude/
-│   ├── hooks/          # 自动化脚本（文件写入后、会话启动时）
-│   ├── rules/          # Claude 加载的项目规范
-│   └── settings.json   # 共享项目配置
-├── docs/
-│   └── PLUGINS.md      # 插件安装与配置指南
-├── .env.example
-├── .gitignore
-├── .nvmrc
-├── .prettierrc
-├── CLAUDE.template.md
-├── package.json
-└── tsconfig.json
-```
+在浏览器中打开 [http://localhost:3000](http://localhost:3000)。使用顶部的平台标签在 Mantle、Bybit 和 Byreal 之间切换，使用类别标签过滤插件、技能或 MCP 工具。点击任意项目卡片上的安装命令即可复制到剪贴板。
 
 ## 配置说明
 
-### `.claude/settings.json`
+| 变量                           | 是否必填 | 说明                                        |
+| ------------------------------ | -------- | ------------------------------------------- |
+| `GITHUB_PERSONAL_ACCESS_TOKEN` | 必填     | 构建时用于获取仓库数据的 GitHub 令牌        |
+| `VERCEL_TOKEN`                 | CI 使用  | GitHub Actions 部署时使用的 Vercel API 令牌 |
+| `VERCEL_ORG_ID`                | CI 使用  | 项目对应的 Vercel 组织 ID                   |
+| `VERCEL_PROJECT_ID`            | CI 使用  | 部署目标的 Vercel 项目 ID                   |
 
-- `model` — 使用的 Claude 模型（默认：`claude-sonnet-4-6`）
-- `thinkingEffort` — 推理强度：`"low"`、`"medium"`、`"high"`
-- `enabledPlugins` — 已安装的插件列表
-- `hooks` — 会话启动及文件写入时的自动触发器
-
-### `.claude/settings.local.json`
-
-个人本地配置覆盖，不提交到仓库。
+在运行 `pnpm sync` 或 `pnpm build` 前，请将 `.env.example` 复制为 `.env` 并填入相应值。
 
 ## 贡献指南
 
-1. 从 `main` 创建分支
-2. 遵循 `.claude/rules/` 中的规范
-3. 提交 PR 前运行 `/pr-review-toolkit:review-pr`
+1. 从 `main` 创建分支：`git checkout -b feat/<功能名>`
+2. 修改完成后，提交前运行 `pnpm format`
+3. 运行 `/pr-review-toolkit:review-pr` 提前发现问题
 4. 通过 `/commit-push-pr` 创建 PR
+
+所有提交须遵循约定式提交格式（参见 `.claude/rules/commit-conventions.md`）。
 
 ## 许可证
 

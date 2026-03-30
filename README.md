@@ -1,26 +1,27 @@
 ---
-title: Claude Template
-description: A ready-to-use Claude Code configuration template with plugins, rules, and hooks.
+title: Mantle Agent Marketplace
+description: Browse and install plugins, skills, and MCP tools for the Mantle ecosystem.
 author: Kyle (https://github.com/kyle-park-io)
 date: 2026-03-30
 ---
 
 **Languages**: English | [한국어](README.kr.md) | [中文](README.zh.md)
 
-# Claude Template
+# Mantle Agent Marketplace
 
-A ready-to-use Claude Code configuration template. Clone this repo and customize it to match your workflow.
+> Browse and install plugins, skills, and MCP tools for the Mantle ecosystem.
 
 ## Overview
 
-This template provides a pre-configured Claude Code setup with plugins, rules, hooks, and conventions baked in. It is designed to be cloned and adapted to any project.
+Mantle Agent Marketplace is a Next.js site that lets developers discover and install Claude Code plugins, reusable skills, and MCP tools across Mantle ecosystem platforms (Mantle, Bybit, Byreal). Items are fetched from GitHub at build time and refreshed every hour via GitHub Actions. Official Mantle items are visually distinguished with a purple card and a ✓ OFFICIAL badge.
 
 ## Features
 
-- Pre-installed plugins (frontend-design, feature-dev, pr-review-toolkit, and more)
-- Project rules for commit, PR, code, formatting, and license conventions
-- Hooks for auto-formatting and missing file detection
-- pnpm + TypeScript setup out of the box
+- Two-level navigation: platform tabs (Mantle / Bybit / Byreal) and category tabs (Plugins / Skills / MCP)
+- Official items highlighted with a purple card and ✓ OFFICIAL badge
+- One-click clipboard copy of install commands
+- Build-time GitHub data sync — no runtime database required
+- Hourly GitHub Actions cron triggers an incremental rebuild to keep listings fresh
 
 ## Getting Started
 
@@ -28,60 +29,43 @@ This template provides a pre-configured Claude Code setup with plugins, rules, h
 
 - Node.js >= 24.0.0
 - pnpm >= 10.0.0
-- Claude Code CLI
+- A GitHub personal access token (`GITHUB_PERSONAL_ACCESS_TOKEN`) to avoid API rate limits
 
 ### Installation
 
 ```bash
-git clone git@github.com:kyle-park-io/claude-template.git
-cd claude-template
+git clone git@github.com:kyle-park-io/mantle-marketplace.git
+cd mantle-marketplace
 pnpm install
+cp .env.example .env
+# Fill in GITHUB_PERSONAL_ACCESS_TOKEN in .env
+pnpm sync
+pnpm dev
 ```
 
 ### Usage
 
-1. Edit `.claude/settings.json` to adjust model, effort, and plugins
-2. Copy `CLAUDE.template.md` to `CLAUDE.md` and fill in your project-specific guidelines
-3. Copy `.env.example` to `.env` and fill in required tokens
-
-## Project Structure
-
-```
-.
-├── .claude/
-│   ├── hooks/          # Automation scripts (post-write, session-start)
-│   ├── rules/          # Project conventions loaded by Claude
-│   └── settings.json   # Shared project settings
-├── docs/
-│   └── PLUGINS.md      # Plugin setup and installation guide
-├── .env.example
-├── .gitignore
-├── .nvmrc
-├── .prettierrc
-├── CLAUDE.template.md
-├── package.json
-└── tsconfig.json
-```
+Open [http://localhost:3000](http://localhost:3000) in your browser. Use the platform tabs at the top to switch between Mantle, Bybit, and Byreal. Use the category tabs to filter by Plugins, Skills, or MCP tools. Click the install command on any item card to copy it to your clipboard.
 
 ## Configuration
 
-### `.claude/settings.json`
+| Variable                       | Required | Description                                         |
+| ------------------------------ | -------- | --------------------------------------------------- |
+| `GITHUB_PERSONAL_ACCESS_TOKEN` | Yes      | GitHub token for fetching repo data at build time   |
+| `VERCEL_TOKEN`                 | For CI   | Vercel API token used by GitHub Actions for deploys |
+| `VERCEL_ORG_ID`                | For CI   | Vercel organization ID for the project              |
+| `VERCEL_PROJECT_ID`            | For CI   | Vercel project ID for the deployment target         |
 
-- `model` — Claude model to use (default: `claude-sonnet-4-6`)
-- `thinkingEffort` — reasoning effort: `"low"`, `"medium"`, or `"high"`
-- `enabledPlugins` — installed plugins
-- `hooks` — automation triggers on session start and file writes
-
-### `.claude/settings.local.json`
-
-Personal local overrides. Not committed to the repo.
+Copy `.env.example` to `.env` and fill in the values before running `pnpm sync` or `pnpm build`.
 
 ## Contributing
 
-1. Branch off `main`
-2. Follow conventions in `.claude/rules/`
-3. Run `/pr-review-toolkit:review-pr` before opening a PR
-4. Open PR via `/commit-push-pr`
+1. Branch off `main`: `git checkout -b feat/<your-feature>`
+2. Make your changes and run `pnpm format` before committing
+3. Run `/pr-review-toolkit:review-pr` to catch issues early
+4. Open a PR via `/commit-push-pr`
+
+All commits must follow the conventional commit format (see `.claude/rules/commit-conventions.md`).
 
 ## License
 
@@ -89,10 +73,10 @@ MIT — see [LICENSE](LICENSE)
 
 ## Star History
 
-<a href="https://www.star-history.com/?repos=kyle-park-io%2Fclaude-template&type=date&legend=top-left">
+<a href="https://www.star-history.com/?repos=kyle-park-io%2Fmantle-marketplace&type=date&legend=top-left">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/image?repos=kyle-park-io/claude-template&type=date&theme=dark&legend=top-left" />
-    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/image?repos=kyle-park-io/claude-template&type=date&legend=top-left" />
-    <img alt="Star History Chart" src="https://api.star-history.com/image?repos=kyle-park-io/claude-template&type=date&legend=top-left" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/image?repos=kyle-park-io/mantle-marketplace&type=date&theme=dark&legend=top-left" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/image?repos=kyle-park-io/mantle-marketplace&type=date&legend=top-left" />
+    <img alt="Star History Chart" src="https://api.star-history.com/image?repos=kyle-park-io/mantle-marketplace&type=date&legend=top-left" />
   </picture>
 </a>
