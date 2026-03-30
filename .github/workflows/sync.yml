@@ -29,12 +29,12 @@ jobs:
       - name: Sync data from GitHub
         run: pnpm sync
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_PERSONAL_ACCESS_TOKEN }}
+          GITHUB_PERSONAL_ACCESS_TOKEN: ${{ secrets.GITHUB_PERSONAL_ACCESS_TOKEN }}
 
       - name: Build
         run: pnpm build
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_PERSONAL_ACCESS_TOKEN }}
+          GITHUB_PERSONAL_ACCESS_TOKEN: ${{ secrets.GITHUB_PERSONAL_ACCESS_TOKEN }}
 
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@v25

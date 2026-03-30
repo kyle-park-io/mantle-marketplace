@@ -1,18 +1,22 @@
 'use client';
 
 import { useRouter, useSearchParams, useParams } from 'next/navigation';
-import { useCallback } from 'react';
+import { useCallback, useRef } from 'react';
 
 export function SearchBar() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const params = useParams<{ platform: string; category: string }>();
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const handleSearch = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       const q = e.target.value;
-      const url = `/${params.platform}/${params.category}${q ? `?q=${encodeURIComponent(q)}` : ''}`;
-      router.replace(url);
+      if (timerRef.current) clearTimeout(timerRef.current);
+      timerRef.current = setTimeout(() => {
+        const url = `/${params.platform}/${params.category}${q ? `?q=${encodeURIComponent(q)}` : ''}`;
+        router.replace(url);
+      }, 300);
     },
     [router, params],
   );

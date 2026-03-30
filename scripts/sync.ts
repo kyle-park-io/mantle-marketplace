@@ -4,34 +4,42 @@ import { fetchItemFromRepo } from '../src/lib/github';
 import { SYNC_CONFIGS } from '../src/lib/constants';
 import type { MarketplaceItem } from '../src/lib/types';
 
-async function sync(): Promise<void> {
+async function main(): Promise<void> {
   console.log('Syncing marketplace data from GitHub...');
 
   const items: MarketplaceItem[] = [];
+  let hasFailed = false;
 
   for (const config of SYNC_CONFIGS) {
-    console.log(`Fetching ${config.repo}...`);
     try {
       const item = await fetchItemFromRepo(config);
       items.push(item);
       console.log(`  ✓ ${item.name}`);
     } catch (err) {
       console.error(`  ✗ Failed to fetch ${config.repo}:`, err);
+      hasFailed = true;
     }
   }
 
-  mkdirSync(join(process.cwd(), 'data'), { recursive: true });
-  writeFileSync(
-    join(process.cwd(), 'data/items.json'),
-    JSON.stringify(items, null, 2),
-  );
+  const outDir = join(process.cwd(), 'data');
+  const outFile = join(outDir, 'items.json');
 
-  console.log(
-    `Sync complete. ${items.length} items written to data/items.json`,
-  );
+  try {
+    mkdirSync(outDir, { recursive: true });
+    writeFileSync(outFile, JSON.stringify(items, null, 2));
+    console.log(`\nWrote ${items.length} items to ${outFile}`);
+  } catch (err) {
+    console.error(`Failed to write data file to ${outFile}:`, err);
+    process.exit(1);
+  }
+
+  if (hasFailed) {
+    console.error('\nSync completed with errors. Some items may be missing.');
+    process.exit(1);
+  }
 }
 
-sync().catch((err) => {
+main().catch((err) => {
   console.error('Sync failed:', err);
   process.exit(1);
 });

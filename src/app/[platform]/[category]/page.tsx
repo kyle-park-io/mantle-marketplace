@@ -8,7 +8,6 @@ import { notFound } from 'next/navigation';
 
 interface PageProps {
   params: Promise<{ platform: string; category: string }>;
-  searchParams: Promise<{ q?: string }>;
 }
 
 export function generateStaticParams() {
@@ -17,30 +16,16 @@ export function generateStaticParams() {
   );
 }
 
-export default async function CategoryPage({
-  params,
-  searchParams,
-}: PageProps) {
+export default async function CategoryPage({ params }: PageProps) {
   const { platform, category } = await params;
-  const { q } = await searchParams;
 
   if (!PLATFORMS.includes(platform as Platform)) notFound();
   if (!CATEGORIES.includes(category as Category)) notFound();
 
-  let items = getItemsByPlatformAndCategory(
+  const items = getItemsByPlatformAndCategory(
     platform as Platform,
     category as Category,
   );
-
-  if (q) {
-    const query = q.toLowerCase();
-    items = items.filter(
-      (item) =>
-        item.name.toLowerCase().includes(query) ||
-        item.description.toLowerCase().includes(query) ||
-        item.tags.some((tag) => tag.toLowerCase().includes(query)),
-    );
-  }
 
   return (
     <div className="mt-6">

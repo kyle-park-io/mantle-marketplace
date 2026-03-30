@@ -1,5 +1,5 @@
-export type Platform = 'mantle' | 'bybit' | 'byreal';
-export type Category = 'plugins' | 'skills' | 'mcp';
+export type { Platform, Category } from './constants';
+import type { Platform, Category } from './constants';
 
 export interface MarketplaceItem {
   slug: string;

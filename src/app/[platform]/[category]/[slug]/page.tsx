@@ -56,7 +56,7 @@ export default async function ItemDetailPage({ params }: PageProps) {
 
       {item.readme && (
         <div className="prose prose-invert mt-8 max-w-none">
-          <ReactMarkdown>{item.readme}</ReactMarkdown>
+          <ReactMarkdown skipHtml={true}>{item.readme}</ReactMarkdown>
         </div>
       )}
     </div>
