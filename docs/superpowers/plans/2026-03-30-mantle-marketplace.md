@@ -161,7 +161,7 @@ export default function HomePage() {
 ```bash
 # GitHub Personal Access Token for syncing external repos (mantle-xyz/*)
 # Requires repo:read scope. The built-in GITHUB_TOKEN cannot access external repos.
-MARKETPLACE_GITHUB_TOKEN=
+GITHUB_PERSONAL_ACCESS_TOKEN=
 ```
 
 - [ ] **Step 9: Run dev server and verify**
@@ -296,8 +296,8 @@ interface GithubPackageJson {
 
 async function fetchWithAuth(url: string): Promise<Response> {
   const headers: HeadersInit = { Accept: 'application/vnd.github.v3+json' };
-  if (process.env.MARKETPLACE_GITHUB_TOKEN) {
-    headers['Authorization'] = `Bearer ${process.env.MARKETPLACE_GITHUB_TOKEN}`;
+  if (process.env.GITHUB_PERSONAL_ACCESS_TOKEN) {
+    headers['Authorization'] = `Bearer ${process.env.GITHUB_PERSONAL_ACCESS_TOKEN}`;
   }
   return fetch(url, { headers });
 }
@@ -420,7 +420,7 @@ data/
 - [ ] **Step 5: Run sync script and verify**
 
 ```bash
-MARKETPLACE_GITHUB_TOKEN=your_token pnpm sync
+GITHUB_PERSONAL_ACCESS_TOKEN=your_token pnpm sync
 ```
 
 Expected: `data/items.json` created with array of items.
@@ -1155,12 +1155,12 @@ jobs:
       - name: Sync data from GitHub
         run: pnpm sync
         env:
-          GITHUB_TOKEN: ${{ secrets.MARKETPLACE_GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_PERSONAL_ACCESS_TOKEN }}
 
       - name: Build
         run: pnpm build
         env:
-          GITHUB_TOKEN: ${{ secrets.MARKETPLACE_GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_PERSONAL_ACCESS_TOKEN }}
 
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@v25
@@ -1176,7 +1176,7 @@ jobs:
 ```bash
 # GitHub Personal Access Token for syncing external repos (mantle-xyz/*)
 # Requires repo:read scope. The built-in GITHUB_TOKEN cannot access external repos.
-MARKETPLACE_GITHUB_TOKEN=
+GITHUB_PERSONAL_ACCESS_TOKEN=
 
 # Vercel deployment (for GitHub Actions)
 # VERCEL_TOKEN=
