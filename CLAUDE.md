@@ -98,7 +98,7 @@ src/
 - Data fetched from GitHub at build time (`lib/github.ts`)
 - GitHub Actions cron triggers rebuild every hour
 - Official repos: `mantle-xyz/mantle-skills`, `mantle-xyz/mantle-agent-scaffold`
-- `GITHUB_TOKEN` env var required to avoid rate limiting
+- `GITHUB_PERSONAL_ACCESS_TOKEN` env var required to avoid rate limiting
 
 ---
 
