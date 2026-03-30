@@ -33,6 +33,7 @@ date: YYYY-MM-DD
 - **Styling** (if frontend):
 - **State Management** (if frontend):
 - **Testing**:
+- **Deployment**:
 
 ## Key Features
 
@@ -41,6 +42,20 @@ date: YYYY-MM-DD
 -
 -
 -
+
+## Data Sources
+
+<!-- External APIs, data feeds, GitHub repos, or services this project depends on. -->
+
+-
+
+## GitHub Sync (if applicable)
+
+<!-- List repos to sync from, and whether they are official/community. -->
+
+| Repo | Category | Official |
+|------|----------|----------|
+|      |          |          |
 
 ## Domain Notes
 
@@ -51,5 +66,11 @@ date: YYYY-MM-DD
 ## Out of Scope
 
 <!-- What this project explicitly does NOT do. -->
+
+-
+
+## Open Questions
+
+<!-- Unresolved decisions or things to confirm before implementation. -->
 
 -
