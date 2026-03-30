@@ -297,7 +297,8 @@ interface GithubPackageJson {
 async function fetchWithAuth(url: string): Promise<Response> {
   const headers: HeadersInit = { Accept: 'application/vnd.github.v3+json' };
   if (process.env.GITHUB_PERSONAL_ACCESS_TOKEN) {
-    headers['Authorization'] = `Bearer ${process.env.GITHUB_PERSONAL_ACCESS_TOKEN}`;
+    headers['Authorization'] =
+      `Bearer ${process.env.GITHUB_PERSONAL_ACCESS_TOKEN}`;
   }
   return fetch(url, { headers });
 }
