@@ -16,7 +16,10 @@
     "format:check": "prettier --check .",
     "sort": "sort-package-json",
     "start": "next start",
-    "sync": "tsx scripts/sync.ts"
+    "sync": "tsx scripts/sync.ts",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "test:watch": "vitest"
   },
   "dependencies": {
     "next": "^15.5.14",
@@ -25,17 +28,22 @@
     "react-markdown": "^10.1.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.58.2",
     "@types/node": "^25.5.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "@vitest/coverage-v8": "^4.1.2",
     "autoprefixer": "10",
+    "jsdom": "^29.0.1",
     "postcss": "8",
     "prettier": "^3.8.1",
     "sort-package-json": "^3.6.1",
     "tailwindcss": "^3.4.19",
     "ts-node": "^10.9.2",
     "tsx": "^4.21.0",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "vitest": "^4.1.2"
   },
   "packageManager": "pnpm@10.33.0",
   "engines": {
