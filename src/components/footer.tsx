@@ -7,7 +7,7 @@ export function Footer() {
   const year = YEAR;
 
   return (
-    <footer className="border-t border-stone-200 bg-stone-50">
+    <footer className="border-t border-orange-100 bg-amber-50/60">
       <div className="mx-auto max-w-6xl px-4 py-10">
         <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
           {/* Brand */}
@@ -23,7 +23,7 @@ export function Footer() {
               <p className="text-xl font-bold text-stone-900">Mantle</p>
             </div>
             <p className="mt-2 text-sm text-stone-600">
-              Browse and install plugins, skills, and MCP tools.
+              Browse and install Plugins, Skills, and MCP tools.
             </p>
           </div>
 
