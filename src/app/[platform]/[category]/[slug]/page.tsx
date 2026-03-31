@@ -41,9 +41,8 @@ export default async function ItemDetailPage({ params }: PageProps) {
       </div>
       <CategoryInfoTooltip
         category={item.category as Category}
+        slug={item.slug}
         name={item.name}
-        description={item.description}
-        tags={item.tags}
       />
       <div className="mx-auto max-w-4xl space-y-6 px-4 py-10">
         {/* Back button */}
