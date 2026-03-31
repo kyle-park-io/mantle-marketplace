@@ -9,15 +9,15 @@ export function CategoryTabs() {
   const { platform: currentPlatform, category: currentCategory } = params;
 
   return (
-    <div className="flex gap-1 border-b border-gray-200">
+    <div className="flex gap-1 border-b border-stone-200">
       {CATEGORIES.map((category) => (
         <Link
           key={category}
           href={`/${currentPlatform}/${category}`}
           className={`px-4 py-2 text-sm font-medium capitalize transition-colors ${
             currentCategory === category
-              ? 'border-b-2 border-indigo-500 text-indigo-600'
-              : 'text-gray-500 hover:text-gray-900'
+              ? 'border-b-2 border-orange-500 text-orange-600'
+              : 'text-stone-500 hover:text-stone-900'
           }`}
         >
           {category}

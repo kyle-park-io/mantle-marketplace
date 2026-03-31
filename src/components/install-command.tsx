@@ -16,11 +16,11 @@ export function InstallCommand({ command }: InstallCommandProps) {
   }
 
   return (
-    <div className="flex items-center gap-2 rounded-md bg-gray-100 px-3 py-2 text-sm">
+    <div className="flex items-center gap-2 rounded-md bg-stone-100 px-3 py-2 text-sm">
       <code className="flex-1 font-mono text-gray-700">{command}</code>
       <button
         onClick={handleCopy}
-        className="shrink-0 rounded px-2 py-1 text-xs text-gray-500 hover:bg-gray-200 hover:text-gray-900 transition-colors"
+        className="shrink-0 rounded px-2 py-1 text-xs text-stone-500 hover:bg-stone-200 hover:text-stone-900 transition-colors"
       >
         {copied ? 'Copied!' : 'Copy'}
       </button>

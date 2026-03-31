@@ -28,15 +28,15 @@ export default async function ItemDetailPage({ params }: PageProps) {
       <div className="mb-6 flex items-start justify-between gap-4">
         <div>
           <div className="flex items-center gap-3">
-            <h1 className="text-2xl font-bold text-gray-900">{item.name}</h1>
+            <h1 className="text-2xl font-bold text-stone-900">{item.name}</h1>
             {item.isOfficial && (
-              <span className="rounded bg-indigo-600 px-2 py-0.5 text-xs font-bold text-white">
+              <span className="rounded bg-orange-600 px-2 py-0.5 text-xs font-bold text-white">
                 ✓ OFFICIAL
               </span>
             )}
           </div>
-          <p className="mt-2 text-gray-500">{item.description}</p>
-          <p className="mt-1 text-sm text-gray-400">
+          <p className="mt-2 text-stone-500">{item.description}</p>
+          <p className="mt-1 text-sm text-stone-400">
             by {item.author} · v{item.version}
           </p>
         </div>
@@ -45,7 +45,7 @@ export default async function ItemDetailPage({ params }: PageProps) {
             href={item.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="shrink-0 rounded border border-gray-300 px-3 py-1.5 text-sm text-gray-500 hover:border-gray-400 hover:text-gray-900 transition-colors"
+            className="shrink-0 rounded border border-stone-300 px-3 py-1.5 text-sm text-stone-500 hover:border-gray-400 hover:text-stone-900 transition-colors"
           >
             GitHub →
           </a>

@@ -11,13 +11,13 @@ export default function HomePage() {
         <h1 className="text-4xl font-bold tracking-tight">
           Mantle Agent Marketplace
         </h1>
-        <p className="mt-4 text-lg text-gray-500">
+        <p className="mt-4 text-lg text-stone-500">
           Browse and install plugins, skills, and MCP tools for the Mantle
           ecosystem.
         </p>
         <Link
           href={`/${DEFAULT_PLATFORM}/plugins`}
-          className="mt-8 inline-block rounded-lg bg-indigo-600 px-6 py-3 font-medium text-white hover:bg-indigo-500 transition-colors"
+          className="mt-8 inline-block rounded-lg bg-orange-600 px-6 py-3 font-medium text-white hover:bg-orange-500 transition-colors"
         >
           Browse Marketplace
         </Link>
@@ -36,7 +36,7 @@ export default function HomePage() {
               <h2 className="text-xl font-semibold capitalize">{category}</h2>
               <Link
                 href={`/${DEFAULT_PLATFORM}/${category}`}
-                className="text-sm text-indigo-600 hover:text-indigo-500"
+                className="text-sm text-orange-600 hover:text-orange-500"
               >
                 View all →
               </Link>
