@@ -7,7 +7,7 @@
 
 ## Overview
 
-An agent marketplace for the Mantle ecosystem. Users can browse plugins, skills, and MCP tools, then copy install commands to their terminal. Designed to scale to multiple platforms (Bybit, Byreal TBD) under a unified interface.
+An agent marketplace for the Mantle ecosystem. Users can browse Plugins, Skills, and MCP tools, then copy install commands to their terminal. Designed to scale to multiple platforms (Bybit, Byreal TBD) under a unified interface.
 
 Reference: [claudemarketplaces.com](https://claudemarketplaces.com/) — with the key difference that Plugins are featured first.
 

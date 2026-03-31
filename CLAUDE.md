@@ -1,6 +1,6 @@
 ---
 title: Mantle Agent Marketplace
-description: A marketplace for browsing and installing plugins, skills, and MCP tools in the Mantle ecosystem.
+description: A marketplace for browsing and installing Plugins, Skills, and MCP tools in the Mantle ecosystem.
 author: Kyle (https://github.com/kyle-park-io)
 date: 2026-03-30
 ---
@@ -11,7 +11,7 @@ date: 2026-03-30
 
 ## Project Overview
 
-Next.js fullstack marketplace for the Mantle ecosystem. Users browse plugins, skills, and MCP tools across platforms (Mantle / Bybit / Byreal TBD) and copy install commands. Official Mantle items are visually distinguished. Data is synced from GitHub repos at build time via GitHub Actions cron.
+Next.js fullstack marketplace for the Mantle ecosystem. Users browse Plugins, Skills, and MCP tools across platforms (Mantle / Bybit / Byreal TBD) and copy install commands. Official Mantle items are visually distinguished. Data is synced from GitHub repos at build time via GitHub Actions cron.
 
 ## Project Type
 
