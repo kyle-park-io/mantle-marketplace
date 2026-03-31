@@ -2,7 +2,7 @@
 title: Mantle Agent Marketplace
 description: Browse and install Plugins, Skills, and MCP tools for the Mantle ecosystem.
 author: Kyle (https://github.com/kyle-park-io)
-date: 2026-03-30
+date: 2026-03-31
 ---
 
 **Languages**: English | [한국어](README.kr.md) | [中文](README.zh.md)
@@ -13,15 +13,18 @@ date: 2026-03-30
 
 ## Overview
 
-Mantle Agent Marketplace is a Next.js site that lets developers discover and install Claude Code plugins, reusable skills, and MCP tools across Mantle ecosystem platforms (Mantle, Bybit, Byreal). Items are fetched from GitHub at build time and refreshed every hour via GitHub Actions. Official Mantle items are visually distinguished with a purple card and a ✓ OFFICIAL badge.
+Mantle Agent Marketplace is a Next.js site that lets developers discover and install Claude Code plugins, reusable skills, and MCP tools across Mantle ecosystem platforms (Mantle, Bybit, Byreal). Items are fetched from GitHub at build time and refreshed every hour via GitHub Actions. Official Mantle items are visually distinguished with a ✓ OFFICIAL badge.
 
 ## Features
 
 - Two-level navigation: platform tabs (Mantle / Bybit / Byreal) and category tabs (Plugins / Skills / MCP)
-- Official items highlighted with a purple card and ✓ OFFICIAL badge
+- Regex-powered search bar for filtering items by name, description, or tags
+- README viewer on each item detail page — rendered from the source repo
+- Sticky info panel on detail pages explaining what each skill, plugin, or MCP does and when to use it
 - One-click clipboard copy of install commands
+- Back navigation on detail pages
 - Build-time GitHub data sync — no runtime database required
-- Hourly GitHub Actions cron triggers an incremental rebuild to keep listings fresh
+- Hourly GitHub Actions cron triggers a rebuild to keep listings fresh
 
 ## Getting Started
 
@@ -45,7 +48,7 @@ pnpm dev
 
 ### Usage
 
-Open [http://localhost:3000](http://localhost:3000) in your browser. Use the platform tabs at the top to switch between Mantle, Bybit, and Byreal. Use the category tabs to filter by Plugins, Skills, or MCP tools. Click the install command on any item card to copy it to your clipboard.
+Open [http://localhost:3000](http://localhost:3000) in your browser. Use the platform tabs at the top to switch between Mantle, Bybit, and Byreal. Use the category tabs to filter by Plugins, Skills, or MCP tools. Click any item to view its README and install instructions. Hover the info panel on the right edge to see when to use that item and what it does.
 
 ## Configuration
 
