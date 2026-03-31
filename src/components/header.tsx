@@ -1,31 +1,42 @@
 import Link from 'next/link';
+import { DEFAULT_PLATFORM } from '@/lib/constants';
 
 export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-stone-200 bg-stone-50/80 backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
         {/* Logo */}
         <Link
           href="/"
-          className="flex items-center gap-2 text-stone-900 transition-opacity hover:opacity-70"
+          className="text-stone-900 transition-opacity hover:opacity-70"
         >
-          <span className="font-mono text-xs font-semibold tracking-widest text-orange-400 uppercase">
-            ▸ mantle
+          <span className="font-serif text-xl font-semibold tracking-tight">
+            Mantle <span className="text-orange-500">Marketplace</span>
           </span>
-          <span className="text-gray-600">/</span>
-          <span className="text-sm font-medium text-gray-300">marketplace</span>
         </Link>
 
         {/* Nav */}
         <nav className="flex items-center gap-6">
           <Link
-            href="/mantle/plugins"
+            href={`/${DEFAULT_PLATFORM}/plugins`}
             className="text-sm text-stone-500 transition-colors hover:text-stone-900"
           >
-            Marketplace
+            Plugins
+          </Link>
+          <Link
+            href={`/${DEFAULT_PLATFORM}/skills`}
+            className="text-sm text-stone-500 transition-colors hover:text-stone-900"
+          >
+            Skills
+          </Link>
+          <Link
+            href={`/${DEFAULT_PLATFORM}/mcp`}
+            className="text-sm text-stone-500 transition-colors hover:text-stone-900"
+          >
+            MCP
           </Link>
           <a
-            href="https://github.com/mantle-xyz"
+            href="https://github.com/kyle-park-io/mantle-marketplace"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 text-sm text-stone-500 transition-colors hover:text-stone-900"
