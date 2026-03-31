@@ -2,20 +2,20 @@
   {
     "slug": "mantle-mcp",
     "name": "mantle-mcp",
-    "description": "MCP server for AI-driven Mantle L2 development — chain reads, simulation, and unsigned transaction building",
+    "description": "MCP server exposing 19 Mantle L2 tools to AI agents — chain reads, token data, DeFi quotes, and diagnostics over stdio",
     "category": "mcp",
     "platform": "mantle",
     "isOfficial": true,
     "installCommand": "git clone https://github.com/mantle-xyz/mantle-agent-scaffold && cd mantle-agent-scaffold && npm install && npm run build",
     "author": "mantle-xyz",
     "version": "0.1.0",
-    "readme": "# mantle-mcp\n\nMCP server exposing Mantle L2 chain tools to AI agents. Gas token is MNT, not ETH.\n\n## Tools (19 total)\n\n### Chain Operations\n- `mantle_getChainInfo` — network metadata\n- `mantle_getChainStatus` — live status\n\n### Registry & Validation\n- `mantle_resolveAddress` — verify contract addresses\n- `mantle_validateAddress` — address format validation\n\n### Account & Balances\n- `mantle_getBalance` — native MNT balance\n- `mantle_getTokenBalances` — ERC-20 balances\n- `mantle_getAllowances` — spender allowances\n\n### Token Functions\n- `mantle_getTokenInfo` — token metadata\n- `mantle_resolveToken` — token symbol → address\n- `mantle_getTokenPrices` — current prices\n\n### DeFi Read\n- `mantle_getSwapQuote` — swap quotes\n- `mantle_getPoolLiquidity` — pool data\n- `mantle_getPoolOpportunities` — yield opportunities\n- `mantle_getProtocolTvl` — protocol TVL\n- `mantle_getLendingMarkets` — lending market data\n\n### Indexer\n- `mantle_querySubgraph` — GraphQL subgraph queries\n- `mantle_queryIndexerSql` — SQL indexer queries\n\n### Diagnostics\n- `mantle_checkRpcHealth` — RPC health check\n- `mantle_probeEndpoint` — endpoint verification\n\n## Setup\n\n```bash\ngit clone https://github.com/mantle-xyz/mantle-agent-scaffold\ncd mantle-agent-scaffold\nnpm install\nnpm run build\n```\n\nMCP client config:\n\n```json\n{\n  \"mcpServers\": {\n    \"mantle\": {\n      \"type\": \"stdio\",\n      \"command\": \"node\",\n      \"args\": [\"dist/index.js\"],\n      \"env\": {\n        \"MANTLE_MCP_TRANSPORT\": \"stdio\",\n        \"MANTLE_RPC_URL\": \"https://rpc.mantle.xyz\",\n        \"MANTLE_SEPOLIA_RPC_URL\": \"https://rpc.sepolia.mantle.xyz\"\n      }\n    }\n  }\n}\n```\n",
+    "readme": "# mantle-mcp\n\nMCP server for integrating Mantle L2 chain data into any MCP-compatible AI agent (Claude, Cursor, custom orchestrators).\n\n## MCP Client Config\n\nAfter building, add this to your MCP client configuration:\n\n```json\n{\n  \"mcpServers\": {\n    \"mantle\": {\n      \"type\": \"stdio\",\n      \"command\": \"node\",\n      \"args\": [\"dist/index.js\"],\n      \"env\": {\n        \"MANTLE_MCP_TRANSPORT\": \"stdio\",\n        \"MANTLE_RPC_URL\": \"https://rpc.mantle.xyz\",\n        \"MANTLE_SEPOLIA_RPC_URL\": \"https://rpc.sepolia.mantle.xyz\"\n      }\n    }\n  }\n}\n```\n\n## Tools (19 total)\n\n### Chain Operations\n\n| Tool | Description |\n|------|-------------|\n| `mantle_getChainInfo` | Network metadata (chain ID, RPC, explorer) |\n| `mantle_getChainStatus` | Live network status |\n\n### Registry & Validation\n\n| Tool | Description |\n|------|-------------|\n| `mantle_resolveAddress` | Verify contract addresses against registry |\n| `mantle_validateAddress` | Address format validation |\n\n### Account & Balances\n\n| Tool | Description |\n|------|-------------|\n| `mantle_getBalance` | Native MNT balance |\n| `mantle_getTokenBalances` | ERC-20 token balances |\n| `mantle_getAllowances` | Spender allowance data |\n\n### Token Functions\n\n| Tool | Description |\n|------|-------------|\n| `mantle_getTokenInfo` | Token metadata |\n| `mantle_resolveToken` | Symbol → verified address |\n| `mantle_getTokenPrices` | Current token prices |\n\n### DeFi Read\n\n| Tool | Description |\n|------|-------------|\n| `mantle_getSwapQuote` | DEX swap quotes |\n| `mantle_getPoolLiquidity` | Pool liquidity data |\n| `mantle_getPoolOpportunities` | Yield opportunities |\n| `mantle_getProtocolTvl` | Protocol TVL |\n| `mantle_getLendingMarkets` | Lending market data |\n\n### Indexer\n\n| Tool | Description |\n|------|-------------|\n| `mantle_querySubgraph` | GraphQL subgraph queries |\n| `mantle_queryIndexerSql` | SQL indexer queries |\n\n### Diagnostics\n\n| Tool | Description |\n|------|-------------|\n| `mantle_checkRpcHealth` | RPC endpoint health check |\n| `mantle_probeEndpoint` | Endpoint verification |\n\n## Important Notes\n\n- Gas token is **MNT**, not ETH\n- Mainnet chain ID: `5000`, Sepolia testnet: `5003`\n- All tools are **read-only** — no transaction signing or broadcasting\n- Always use `mantle_resolveAddress` before passing addresses to any tool\n",
     "githubUrl": "https://github.com/mantle-xyz/mantle-agent-scaffold",
     "tags": [
       "mcp",
+      "stdio",
       "mantle",
       "defi",
-      "chain",
       "l2"
     ],
     "updatedAt": "2026-03-17T10:17:10Z"
@@ -23,18 +23,18 @@
   {
     "slug": "mantle-agent-scaffold",
     "name": "mantle-agent-scaffold",
-    "description": "Full development scaffold bundling the Mantle MCP server, CLI, and pinned skills for AI-driven Mantle L2 development",
+    "description": "Full development scaffold for building AI agents on Mantle L2 — bundles the MCP server, CLI, and 10 pinned skills in one repo",
     "category": "plugins",
     "platform": "mantle",
     "isOfficial": true,
-    "installCommand": "git clone https://github.com/mantle-xyz/mantle-agent-scaffold",
+    "installCommand": "git clone https://github.com/mantle-xyz/mantle-agent-scaffold && cd mantle-agent-scaffold && npm install && npm run skills:init && npm run build",
     "author": "mantle-xyz",
     "version": "0.1.0",
-    "readme": "# mantle-agent-scaffold\n\nPackages three things together for external Mantle integrations: a pinned `skills/` checkout, the Mantle MCP server, and a local CLI.\n\n## Quick Start\n\n```bash\nnpm install\nnpm run skills:init\nnpm run build\nMANTLE_MCP_TRANSPORT=stdio npm start\n```\n\n## What's Included\n\n- **MCP server** — 19 read-oriented Mantle tools over stdio\n- **CLI** (`mantle-cli`) — same capabilities for shell workflows\n- **Skills** — pinned checkout of `mantle-xyz/mantle-skills`\n\n## Skills\n\n```bash\nnpm run skills:init   # initialize pinned checkout\nnpm run skills:sync   # update to latest\n```\n\n## CLI Examples\n\n```bash\nnode dist/cli/index.js chain info\nnode dist/cli/index.js registry resolve USDC --json\nnode dist/cli/index.js token prices --tokens USDC,WETH --json\n```\n\n## Documentation\n\n[mantle-xyz.github.io/mantle-agent-scaffold](https://mantle-xyz.github.io/mantle-agent-scaffold/)\n",
+    "readme": "# mantle-agent-scaffold\n\nThe starting point for building AI agents that interact with the Mantle L2 network. Bundles everything you need in one repo.\n\n## What's Included\n\n| Component | Description |\n|-----------|-------------|\n| **MCP server** | 19 read-oriented Mantle tools exposed over stdio |\n| **CLI** (`mantle-cli`) | Same capabilities for shell-based workflows |\n| **Skills** | Pinned checkout of `mantle-xyz/mantle-skills` (10 skills) |\n\n## Quick Start\n\n```bash\ngit clone https://github.com/mantle-xyz/mantle-agent-scaffold\ncd mantle-agent-scaffold\nnpm install\nnpm run skills:init\nnpm run build\n```\n\nStart the MCP server:\n\n```bash\nMANTLE_MCP_TRANSPORT=stdio npm start\n```\n\n## CLI Usage\n\n```bash\nnode dist/cli/index.js chain info\nnode dist/cli/index.js registry resolve USDC --json\nnode dist/cli/index.js account balance 0x1234... --json\nnode dist/cli/index.js token prices --tokens USDC,WETH --json\nnode dist/cli/index.js diagnostics rpc-health\n```\n\n## Skills\n\nSkills define how your agent should behave when performing specific Mantle tasks. Load the relevant `SKILL.md` into your agent context before calling MCP tools.\n\n```bash\nnpm run skills:init   # initialize pinned checkout\nnpm run skills:sync   # update to latest\n```\n\nEach skill lives at `skills/skills/<skill-name>/SKILL.md`.\n\n## Key Design Principles\n\n- **Read-only first** — no transaction signing or broadcasting in v0.2\n- **Skill-first model** — select a skill before calling tools\n- **Address verification mandatory** — always resolve via `mantle_resolveAddress`\n- **Simulation before execution** — always simulate and obtain WYSIWYS summary\n\n## Documentation\n\n[mantle-xyz.github.io/mantle-agent-scaffold](https://mantle-xyz.github.io/mantle-agent-scaffold/)",
     "githubUrl": "https://github.com/mantle-xyz/mantle-agent-scaffold",
     "tags": [
       "scaffold",
-      "mcp",
+      "developer-tool",
       "cli",
       "skills",
       "mantle"
