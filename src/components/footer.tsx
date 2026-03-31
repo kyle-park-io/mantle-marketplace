@@ -7,7 +7,7 @@ export function Footer() {
   const year = YEAR;
 
   return (
-    <footer className="border-t border-orange-100 bg-orange-50">
+    <footer className="border-t border-stone-200 bg-white">
       <div className="mx-auto max-w-6xl px-4 py-10">
         <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
           {/* Brand */}
