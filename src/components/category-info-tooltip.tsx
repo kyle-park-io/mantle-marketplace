@@ -4,24 +4,39 @@ import type { Category } from '@/lib/types';
 
 interface CategoryInfo {
   title: string;
-  description: string;
+  bullets: string[];
 }
 
 const CATEGORY_INFO: Record<Category, CategoryInfo> = {
   skills: {
     title: 'About Skills',
-    description:
-      "A Skill is a reusable prompt/workflow package that extends Claude's capabilities for specific Mantle tasks. Skills are loaded into Claude's context to guide it through structured workflows — like evaluating DeFi risk, analyzing portfolios, or deploying contracts safely.",
+    bullets: [
+      'Load structured workflows into Claude's context',
+      'Guide Claude through Mantle-specific tasks step by step',
+      'Cover DeFi risk evaluation, portfolio analysis, contract deployment, and more',
+      'Read-only by default — no signing or broadcasting',
+      'Combine multiple skills for complex multi-step operations',
+    ],
   },
   plugins: {
     title: 'About Plugins',
-    description:
-      'A Plugin is a full Claude Code extension that adds new commands, tools, and behaviors to your agent. Unlike Skills (which are prompt-based), Plugins ship executable code that runs alongside Claude — typically as an MCP server, slash command set, or scaffold toolkit.',
+    bullets: [
+      'Full Claude Code extensions that ship executable code',
+      'Add new slash commands and tools to your agent',
+      'Typically include an MCP server, skill set, and scaffold toolkit',
+      'Install once, use across all your Mantle agent projects',
+      'Official plugins are maintained by Mantle team',
+    ],
   },
   mcp: {
     title: 'About MCP',
-    description:
-      'An MCP (Model Context Protocol) tool connects Claude to external services and blockchain data via a standardized protocol. MCP servers expose tools that Claude can call at runtime — like reading on-chain balances, querying subgraphs, or simulating transactions.',
+    bullets: [
+      'Connect Claude to live blockchain data via Model Context Protocol',
+      'Read on-chain balances, token info, and transaction history',
+      'Query subgraphs and indexers for historical data',
+      'Simulate transactions before signing',
+      'Resolve and verify contract addresses against the Mantle registry',
+    ],
   },
 };
 
@@ -33,27 +48,43 @@ export function CategoryInfoTooltip({ category }: CategoryInfoTooltipProps) {
   const info = CATEGORY_INFO[category];
 
   return (
-    <div className="group relative inline-flex items-center">
-      {/* Trigger button */}
-      <button
-        type="button"
-        aria-label={`Learn more: ${info.title}`}
-        className="flex h-[18px] w-[18px] items-center justify-center rounded-full border border-stone-300 bg-stone-100 text-[10px] font-semibold text-stone-400 transition-colors hover:border-orange-300 hover:bg-orange-50 hover:text-orange-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-1"
-      >
-        ?
-      </button>
+    <div className="group fixed right-6 top-1/2 z-40 -translate-y-1/2">
+      {/* Trigger tab */}
+      <div className="flex cursor-default items-center gap-1.5 rounded-l-lg border border-r-0 border-stone-200 bg-white px-3 py-2.5 shadow-sm transition-colors group-hover:border-orange-300 group-hover:bg-orange-50">
+        <svg
+          className="h-3.5 w-3.5 text-stone-400 group-hover:text-orange-400"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={2}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
+        </svg>
+        <span className="text-xs font-semibold text-stone-500 group-hover:text-orange-500 [writing-mode:vertical-rl] rotate-180">
+          {info.title}
+        </span>
+      </div>
 
-      {/* Tooltip */}
+      {/* Tooltip panel — slides in from the right */}
       <div
         role="tooltip"
-        className="pointer-events-none absolute left-6 top-1/2 z-50 w-72 -translate-y-1/2 rounded-lg border border-stone-200 bg-white p-4 shadow-lg opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-within:opacity-100"
+        className="pointer-events-none absolute right-full top-1/2 mr-0 w-64 -translate-y-1/2 rounded-lg border border-stone-200 bg-white p-4 shadow-lg opacity-0 transition-all duration-200 group-hover:opacity-100"
       >
-        <p className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-orange-500">
+        <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-orange-500">
           {info.title}
         </p>
-        <p className="text-xs leading-relaxed text-stone-600">
-          {info.description}
-        </p>
+        <ul className="space-y-1.5">
+          {info.bullets.map((bullet) => (
+            <li key={bullet} className="flex items-start gap-2 text-xs leading-relaxed text-stone-600">
+              <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-orange-400" />
+              {bullet}
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
