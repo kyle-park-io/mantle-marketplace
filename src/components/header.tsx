@@ -4,7 +4,7 @@ import { DEFAULT_PLATFORM } from '@/lib/constants';
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b border-stone-200 bg-stone-50/80 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-orange-100 bg-amber-50/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
         {/* Logo */}
         <Link

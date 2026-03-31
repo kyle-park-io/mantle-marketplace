@@ -49,18 +49,18 @@ const markdownComponents: Components = {
     const isBlock = Boolean(className?.startsWith('language-'));
     return isBlock ? (
       <code
-        className={`block font-mono text-sm text-stone-100 ${className ?? ''}`}
+        className={`block font-mono text-sm text-stone-700 ${className ?? ''}`}
       >
         {children}
       </code>
     ) : (
-      <code className="rounded border border-stone-200 bg-stone-100 px-1.5 py-0.5 font-mono text-sm text-orange-700">
+      <code className="rounded border border-orange-200 bg-orange-50 px-1.5 py-0.5 font-mono text-sm text-orange-700">
         {children}
       </code>
     );
   },
   pre: ({ children }) => (
-    <pre className="my-4 overflow-x-auto rounded-lg border border-stone-800 bg-stone-950 px-5 py-4 text-sm leading-relaxed">
+    <pre className="my-4 overflow-x-auto rounded-lg border border-orange-200 bg-orange-50 px-5 py-4 text-sm leading-relaxed">
       {children}
     </pre>
   ),

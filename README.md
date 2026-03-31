@@ -1,6 +1,6 @@
 ---
 title: Mantle Agent Marketplace
-description: Browse and install plugins, skills, and MCP tools for the Mantle ecosystem.
+description: Browse and install Plugins, Skills, and MCP tools for the Mantle ecosystem.
 author: Kyle (https://github.com/kyle-park-io)
 date: 2026-03-30
 ---
@@ -9,7 +9,7 @@ date: 2026-03-30
 
 # Mantle Agent Marketplace
 
-> Browse and install plugins, skills, and MCP tools for the Mantle ecosystem.
+> Browse and install Plugins, Skills, and MCP tools for the Mantle ecosystem.
 
 ## Overview
 

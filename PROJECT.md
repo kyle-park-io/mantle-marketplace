@@ -1,6 +1,6 @@
 ---
 title: Mantle Agent Marketplace
-description: A marketplace for browsing and installing plugins, skills, and MCP tools in the Mantle ecosystem.
+description: A marketplace for browsing and installing Plugins, Skills, and MCP tools in the Mantle ecosystem.
 author: Kyle (https://github.com/kyle-park-io)
 date: 2026-03-30
 ---
@@ -13,7 +13,7 @@ Mantle Agent Marketplace
 
 ## What It Does
 
-A catalog site where developers and end users can browse plugins, skills, and MCP tools available in the Mantle ecosystem. Users can copy install commands directly from the marketplace. Official Mantle-provided items are visually distinguished from community items. Designed to scale to multiple platforms (Bybit, Byreal TBD) under a unified interface.
+A catalog site where developers and end users can browse Plugins, Skills, and MCP tools available in the Mantle ecosystem. Users can copy install commands directly from the marketplace. Official Mantle-provided items are visually distinguished from community items. Designed to scale to multiple platforms (Bybit, Byreal TBD) under a unified interface.
 
 ## Project Type
 

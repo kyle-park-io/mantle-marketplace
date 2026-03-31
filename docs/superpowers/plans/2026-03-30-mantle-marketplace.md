@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Build a Next.js marketplace site where users can browse and install Mantle ecosystem plugins, skills, and MCP tools.
+**Goal:** Build a Next.js marketplace site where users can browse and install Mantle ecosystem Plugins, Skills, and MCP tools.
 
 **Architecture:** Next.js App Router with SSG + API Routes. Data is fetched from GitHub at build time and stored as static JSON. Pages are pre-rendered with `generateStaticParams`. A search API route handles client-side filtering.
 
@@ -122,7 +122,7 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Mantle Agent Marketplace',
-  description: 'Browse and install plugins, skills, and MCP tools for the Mantle ecosystem.',
+  description: 'Browse and install Plugins, Skills, and MCP tools for the Mantle ecosystem.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -1065,7 +1065,7 @@ export default function HomePage() {
             Mantle Agent Marketplace
           </h1>
           <p className="mt-4 text-lg text-gray-400">
-            Browse and install plugins, skills, and MCP tools for the Mantle ecosystem.
+            Browse and install Plugins, Skills, and MCP tools for the Mantle ecosystem.
           </p>
           <Link
             href={`/${DEFAULT_PLATFORM}/plugins`}
