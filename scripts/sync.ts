@@ -1,8 +1,11 @@
+import { config as loadEnv } from 'dotenv';
 import { writeFileSync, mkdirSync } from 'fs';
 import { join } from 'path';
 import { fetchItemFromRepo } from '../src/lib/github';
 import { SYNC_CONFIGS } from '../src/lib/constants';
 import type { MarketplaceItem } from '../src/lib/types';
+
+loadEnv(); // load .env if present; no-op when file doesn't exist (CI)
 
 async function main(): Promise<void> {
   console.log('Syncing marketplace data from GitHub...');
