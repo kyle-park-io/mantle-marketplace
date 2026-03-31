@@ -6,6 +6,13 @@ import { CATEGORY_LABELS } from '@/lib/constants';
 import type { Platform, Category } from '@/lib/types';
 import { notFound } from 'next/navigation';
 
+function stripFrontmatter(content: string): string {
+  if (!content.startsWith('---')) return content;
+  const end = content.indexOf('\n---', 3);
+  if (end === -1) return content;
+  return content.slice(end + 4).trimStart();
+}
+
 interface PageProps {
   params: Promise<{ platform: string; category: string; slug: string }>;
 }
@@ -127,7 +134,9 @@ export default async function ItemDetailPage({ params }: PageProps) {
             README
           </h2>
           <div className="prose prose-stone prose-headings:font-semibold prose-a:text-orange-600 prose-code:text-orange-700 prose-code:bg-orange-50 prose-code:border prose-code:border-orange-200 prose-code:rounded prose-pre:bg-orange-50 prose-pre:border prose-pre:border-orange-200 max-w-none">
-            <ReactMarkdown skipHtml={true}>{item.readme}</ReactMarkdown>
+            <ReactMarkdown skipHtml={true}>
+              {stripFrontmatter(item.readme)}
+            </ReactMarkdown>
           </div>
         </div>
       )}
