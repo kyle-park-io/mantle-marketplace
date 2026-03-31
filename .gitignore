@@ -13,8 +13,8 @@ out/
 # Next.js
 .next/
 
-# Generated data (sync output)
-data/
+# Generated data (sync output — keep items.json tracked)
+data/*.tmp
 
 # TypeScript cache
 *.tsbuildinfo
