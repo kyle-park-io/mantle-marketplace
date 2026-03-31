@@ -1,5 +1,4 @@
 import ReactMarkdown from 'react-markdown';
-import type { Components } from 'react-markdown';
 import { InstallCommand } from '@/components/install-command';
 import { getItemBySlug, getAllItems } from '@/lib/data';
 import type { Platform, Category } from '@/lib/types';
@@ -17,97 +16,6 @@ export function generateStaticParams() {
   }));
 }
 
-const markdownComponents: Components = {
-  h1: ({ children }) => (
-    <h1 className="mb-4 mt-8 border-b border-stone-100 pb-2 text-2xl font-bold text-stone-900 first:mt-0">
-      {children}
-    </h1>
-  ),
-  h2: ({ children }) => (
-    <h2 className="mb-3 mt-7 border-b border-stone-100 pb-1.5 text-xl font-semibold text-stone-900 first:mt-0">
-      {children}
-    </h2>
-  ),
-  h3: ({ children }) => (
-    <h3 className="mb-2 mt-5 text-base font-semibold text-stone-800">
-      {children}
-    </h3>
-  ),
-  p: ({ children }) => (
-    <p className="my-3 leading-7 text-stone-700">{children}</p>
-  ),
-  ul: ({ children }) => (
-    <ul className="my-3 ml-6 list-disc space-y-1 text-stone-700">{children}</ul>
-  ),
-  ol: ({ children }) => (
-    <ol className="my-3 ml-6 list-decimal space-y-1 text-stone-700">
-      {children}
-    </ol>
-  ),
-  li: ({ children }) => <li className="leading-7">{children}</li>,
-  code: ({ className, children }) => {
-    const isBlock = Boolean(className?.startsWith('language-'));
-    return isBlock ? (
-      <code
-        className={`block font-mono text-sm text-stone-700 ${className ?? ''}`}
-      >
-        {children}
-      </code>
-    ) : (
-      <code className="rounded border border-orange-200 bg-orange-50 px-1.5 py-0.5 font-mono text-sm text-orange-700">
-        {children}
-      </code>
-    );
-  },
-  pre: ({ children }) => (
-    <pre className="my-4 overflow-x-auto rounded-lg border border-orange-200 bg-orange-50 px-5 py-4 text-sm leading-relaxed">
-      {children}
-    </pre>
-  ),
-  blockquote: ({ children }) => (
-    <blockquote className="my-4 rounded-r-lg border-l-4 border-orange-300 bg-orange-50 py-3 pl-4 pr-3 italic text-stone-600">
-      {children}
-    </blockquote>
-  ),
-  a: ({ href, children }) => (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="font-medium text-orange-600 underline underline-offset-2 transition-colors hover:text-orange-800"
-    >
-      {children}
-    </a>
-  ),
-  table: ({ children }) => (
-    <div className="my-4 overflow-x-auto rounded-lg border border-stone-200">
-      <table className="w-full text-sm">{children}</table>
-    </div>
-  ),
-  thead: ({ children }) => (
-    <thead className="bg-stone-50 text-xs uppercase tracking-wide text-stone-500">
-      {children}
-    </thead>
-  ),
-  th: ({ children }) => (
-    <th className="border-b border-stone-200 px-4 py-2.5 text-left font-semibold">
-      {children}
-    </th>
-  ),
-  td: ({ children }) => (
-    <td className="border-b border-stone-100 px-4 py-2.5 text-stone-700">
-      {children}
-    </td>
-  ),
-  tr: ({ children }) => (
-    <tr className="transition-colors hover:bg-stone-50">{children}</tr>
-  ),
-  hr: () => <hr className="my-6 border-stone-200" />,
-  strong: ({ children }) => (
-    <strong className="font-semibold text-stone-900">{children}</strong>
-  ),
-};
-
 export default async function ItemDetailPage({ params }: PageProps) {
   const { platform, category, slug } = await params;
 
@@ -121,7 +29,7 @@ export default async function ItemDetailPage({ params }: PageProps) {
       <div className="rounded-xl border border-stone-200 bg-white p-6 shadow-sm space-y-5">
         <div className="flex items-start justify-between gap-4">
           <div className="space-y-2 min-w-0">
-            {/* Category + Official badges */}
+            {/* Badges */}
             <div className="flex items-center gap-2">
               <span className="inline-flex items-center rounded-full border border-stone-200 bg-stone-100 px-2.5 py-0.5 text-xs font-medium uppercase tracking-wide text-stone-500">
                 {item.category}
@@ -195,10 +103,8 @@ export default async function ItemDetailPage({ params }: PageProps) {
           <h2 className="mb-6 text-xs font-semibold uppercase tracking-wide text-stone-400">
             README
           </h2>
-          <div className="space-y-1">
-            <ReactMarkdown skipHtml={true} components={markdownComponents}>
-              {item.readme}
-            </ReactMarkdown>
+          <div className="prose prose-stone prose-headings:font-semibold prose-a:text-orange-600 prose-code:text-orange-700 prose-code:bg-orange-50 prose-code:border prose-code:border-orange-200 prose-code:rounded prose-pre:bg-orange-50 prose-pre:border prose-pre:border-orange-200 max-w-none">
+            <ReactMarkdown skipHtml={true}>{item.readme}</ReactMarkdown>
           </div>
         </div>
       )}

@@ -10,9 +10,9 @@ const PLATFORM_LOGOS: Record<
   Platform,
   { src: string; width: number; height: number }
 > = {
-  mantle: { src: '/logos/mantle.svg', width: 20, height: 20 },
-  bybit: { src: '/logos/bybit.png', width: 20, height: 20 },
-  byreal: { src: '/logos/byreal.png', width: 20, height: 20 },
+  mantle: { src: '/logos/mantle.svg', width: 28, height: 28 },
+  bybit: { src: '/logos/bybit.png', width: 28, height: 28 },
+  byreal: { src: '/logos/byreal.png', width: 28, height: 28 },
 };
 
 export function PlatformTabs() {
