@@ -30,7 +30,7 @@ export default async function ItemDetailPage({ params }: PageProps) {
           <div className="flex items-center gap-3">
             <h1 className="text-2xl font-bold text-stone-900">{item.name}</h1>
             {item.isOfficial && (
-              <span className="rounded bg-orange-600 px-2 py-0.5 text-xs font-bold text-white">
+              <span className="text-xs font-bold text-orange-500">
                 ✓ OFFICIAL
               </span>
             )}

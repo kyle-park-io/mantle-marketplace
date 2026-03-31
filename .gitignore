@@ -35,6 +35,7 @@ data/
 
 # Local request/task notes
 REQUEST.md
+SKILLS_GUIDE.md
 
 # Playwright
 playwright-report/

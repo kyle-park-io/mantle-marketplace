@@ -22,4 +22,5 @@ export interface GithubSyncConfig {
   platform: Platform;
   category: Category;
   isOfficial: boolean;
+  skillPath?: string;
 }

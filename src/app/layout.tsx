@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'Mantle Agent Marketplace',
   description:
     'Browse and install plugins, skills, and MCP tools for the Mantle ecosystem.',
+  icons: { icon: '/logos/m-icon.svg' },
 };
 
 export default function RootLayout({
