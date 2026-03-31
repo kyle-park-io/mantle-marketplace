@@ -12,10 +12,10 @@ export function Header() {
           className="flex items-center gap-2.5 transition-opacity hover:opacity-70"
         >
           <Image
-            src="/logos/mantle.svg"
+            src="/logos/m-icon.svg"
             alt="Mantle logo"
-            width={24}
-            height={24}
+            width={28}
+            height={28}
             className="object-contain"
           />
           <span className="text-xl font-bold tracking-tight text-orange-500">

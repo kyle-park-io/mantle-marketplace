@@ -24,7 +24,7 @@ export default function HomePage() {
         </p>
         <Link
           href={`/${DEFAULT_PLATFORM}/plugins`}
-          className="mt-8 inline-block rounded-lg border border-orange-500 px-6 py-3 font-medium text-orange-600 hover:bg-orange-50 transition-colors"
+          className="mt-8 inline-block rounded-lg bg-orange-500 px-6 py-3 font-medium text-white hover:bg-orange-600 transition-colors"
         >
           Browse Marketplace
         </Link>

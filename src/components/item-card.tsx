@@ -10,17 +10,11 @@ export function ItemCard({ item }: ItemCardProps) {
 
   return (
     <Link href={href}>
-      <div
-        className={`rounded-lg border p-4 transition-colors hover:border-orange-400 ${
-          item.isOfficial
-            ? 'border-orange-200 bg-orange-50'
-            : 'border-stone-200 bg-stone-100'
-        }`}
-      >
+      <div className="rounded-lg border border-stone-200 bg-stone-100 p-4 transition-colors hover:border-orange-400">
         <div className="flex items-start justify-between gap-2">
           <h3 className="font-semibold text-stone-900">{item.name}</h3>
           {item.isOfficial && (
-            <span className="shrink-0 rounded bg-orange-600 px-2 py-0.5 text-xs font-bold text-white">
+            <span className="shrink-0 text-xs font-bold text-orange-500">
               ✓ OFFICIAL
             </span>
           )}

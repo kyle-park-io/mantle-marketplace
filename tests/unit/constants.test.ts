@@ -40,10 +40,12 @@ describe('DEFAULT_CATEGORY', () => {
 });
 
 describe('SYNC_CONFIGS', () => {
-  it('has no duplicate platform+category pairs', () => {
+  it('has no duplicate entries', () => {
     const seen = new Set<string>();
     for (const config of SYNC_CONFIGS) {
-      const key = `${config.platform}:${config.category}`;
+      const key = config.skillPath
+        ? `${config.platform}:${config.category}:${config.skillPath}`
+        : `${config.platform}:${config.category}:${config.repo}`;
       expect(seen.has(key)).toBe(false);
       seen.add(key);
     }
