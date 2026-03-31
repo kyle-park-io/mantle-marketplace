@@ -58,14 +58,6 @@ export function Footer() {
             >
               Skills Repo
             </a>
-            <a
-              href="https://github.com/mantle-xyz/mantle-agent-scaffold"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs text-stone-500 transition-colors hover:text-stone-900"
-            >
-              Agent Scaffold
-            </a>
           </div>
         </div>
 
