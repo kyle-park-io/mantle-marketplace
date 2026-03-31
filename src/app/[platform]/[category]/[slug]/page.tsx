@@ -35,7 +35,9 @@ export default async function ItemDetailPage({ params }: PageProps) {
 
   return (
     <>
-      <CategoryTabs />
+      <div className="mt-6">
+        <CategoryTabs />
+      </div>
       <div className="mx-auto max-w-4xl space-y-6 px-4 py-10">
         {/* Back button */}
         <Link
@@ -136,7 +138,7 @@ export default async function ItemDetailPage({ params }: PageProps) {
             <h2 className="mb-6 text-xs font-semibold uppercase tracking-wide text-stone-400">
               README
             </h2>
-            <div className="prose prose-stone prose-headings:font-semibold prose-a:text-orange-600 prose-code:text-stone-800 prose-code:bg-stone-100 prose-code:border prose-code:border-stone-200 prose-code:rounded prose-pre:bg-stone-100 prose-pre:border prose-pre:border-stone-200 max-w-none">
+            <div className="prose prose-stone prose-headings:font-semibold prose-a:text-orange-600 prose-code:text-stone-700 prose-code:bg-stone-100 prose-code:rounded prose-pre:bg-stone-100 prose-pre:border prose-pre:border-stone-200 max-w-none">
               <ReactMarkdown skipHtml={true}>
                 {stripFrontmatter(item.readme)}
               </ReactMarkdown>
