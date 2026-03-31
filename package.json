@@ -2,7 +2,7 @@
   "name": "mantle-marketplace",
   "version": "0.0.1",
   "private": true,
-  "description": "Mantle Agent Marketplace — browse and install plugins, skills, and MCP tools",
+  "description": "Mantle Agent Marketplace — browse and install Plugins, Skills, and MCP tools",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/kyle-park-io/mantle-marketplace.git"
