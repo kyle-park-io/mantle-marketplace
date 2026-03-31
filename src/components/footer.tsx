@@ -9,7 +9,7 @@ export function Footer() {
   return (
     <footer className="border-t border-stone-200 bg-stone-50">
       <div className="mx-auto max-w-6xl px-4 py-8">
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2">
@@ -30,17 +30,20 @@ export function Footer() {
           </div>
 
           {/* Links */}
-          <div className="flex items-center gap-5">
+          <div className="flex flex-col gap-2">
+            <p className="text-xs font-semibold text-stone-400 uppercase tracking-wider mb-1">
+              Official Mantle
+            </p>
             <a
-              href="https://github.com/kyle-park-io/mantle-marketplace"
+              href="https://x.com/Mantle_Official/status/2032422157880619166"
               target="_blank"
               rel="noopener noreferrer"
               className="text-xs text-stone-500 transition-colors hover:text-stone-900"
             >
-              GitHub
+              𝕏 Mantle Official
             </a>
             <a
-              href="https://github.com/mantle-xyz/mantle-agent-scaffold"
+              href="https://mantle-xyz.github.io/mantle-agent-scaffold/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-xs text-stone-500 transition-colors hover:text-stone-900"
@@ -54,6 +57,14 @@ export function Footer() {
               className="text-xs text-stone-500 transition-colors hover:text-stone-900"
             >
               Skills Repo
+            </a>
+            <a
+              href="https://github.com/mantle-xyz/mantle-agent-scaffold"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs text-stone-500 transition-colors hover:text-stone-900"
+            >
+              Agent Scaffold
             </a>
           </div>
         </div>
