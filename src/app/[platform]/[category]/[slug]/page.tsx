@@ -1,6 +1,8 @@
+import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 import { InstallCommand } from '@/components/install-command';
 import { getItemBySlug, getAllItems } from '@/lib/data';
+import { CATEGORY_LABELS } from '@/lib/constants';
 import type { Platform, Category } from '@/lib/types';
 import { notFound } from 'next/navigation';
 
@@ -25,6 +27,27 @@ export default async function ItemDetailPage({ params }: PageProps) {
 
   return (
     <div className="mx-auto max-w-4xl space-y-6 px-4 py-10">
+      {/* Back button */}
+      <Link
+        href={`/${platform}/${category}`}
+        className="inline-flex items-center gap-1.5 text-sm text-stone-500 transition-colors hover:text-orange-500"
+      >
+        <svg
+          className="h-4 w-4"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={2}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M15 19l-7-7 7-7"
+          />
+        </svg>
+        Back to {CATEGORY_LABELS[item.category as Category]}
+      </Link>
+
       {/* Hero card */}
       <div className="rounded-xl border border-stone-200 bg-white p-6 shadow-sm space-y-5">
         <div className="flex items-start justify-between gap-4">
@@ -32,7 +55,7 @@ export default async function ItemDetailPage({ params }: PageProps) {
             {/* Badges */}
             <div className="flex items-center gap-2">
               <span className="inline-flex items-center rounded-full border border-stone-200 bg-stone-100 px-2.5 py-0.5 text-xs font-medium uppercase tracking-wide text-stone-500">
-                {item.category}
+                {CATEGORY_LABELS[item.category as Category]}
               </span>
               {item.isOfficial && (
                 <span className="inline-flex items-center gap-1 rounded-full border border-orange-200 bg-orange-50 px-2.5 py-0.5 text-xs font-semibold text-orange-600">

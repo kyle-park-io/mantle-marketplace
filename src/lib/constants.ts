@@ -9,6 +9,12 @@ export type Category = (typeof CATEGORIES)[number];
 export const DEFAULT_PLATFORM: Platform = 'mantle';
 export const DEFAULT_CATEGORY: Category = 'plugins';
 
+export const CATEGORY_LABELS: Record<Category, string> = {
+  plugins: 'Plugins',
+  skills: 'Skills',
+  mcp: 'MCP',
+};
+
 export const SYNC_CONFIGS: GithubSyncConfig[] = [
   // Full scaffold plugin
   {

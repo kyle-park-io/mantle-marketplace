@@ -2,14 +2,8 @@
 
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
-import { CATEGORIES } from '@/lib/constants';
+import { CATEGORIES, CATEGORY_LABELS } from '@/lib/constants';
 import type { Category } from '@/lib/constants';
-
-const CATEGORY_LABELS: Record<Category, string> = {
-  plugins: 'Plugins',
-  skills: 'Skills',
-  mcp: 'MCP',
-};
 
 export function CategoryTabs() {
   const params = useParams<{ platform: string; category: string }>();
