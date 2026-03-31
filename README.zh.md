@@ -2,7 +2,7 @@
 title: Mantle Agent Marketplace
 description: 浏览并安装 Mantle 生态系统的插件、技能和 MCP 工具。
 author: Kyle (https://github.com/kyle-park-io)
-date: 2026-03-30
+date: 2026-03-31
 ---
 
 **Languages**: [English](README.md) | [한국어](README.kr.md) | 中文
@@ -13,15 +13,18 @@ date: 2026-03-30
 
 ## 概述
 
-Mantle Agent Marketplace 是一个基于 Next.js 的站点，让开发者可以在 Mantle 生态系统平台（Mantle、Bybit、Byreal）中发现并安装 Claude Code 插件、可复用技能和 MCP 工具。数据在构建时从 GitHub 拉取，并通过 GitHub Actions 每小时刷新一次。官方 Mantle 项目以紫色卡片和 ✓ OFFICIAL 徽章加以区分。
+Mantle Agent Marketplace 是一个基于 Next.js 的站点，让开发者可以在 Mantle 生态系统平台（Mantle、Bybit、Byreal）中发现并安装 Claude Code 插件、可复用技能和 MCP 工具。数据在构建时从 GitHub 拉取，并通过 GitHub Actions 每小时刷新一次。官方 Mantle 项目以 ✓ OFFICIAL 徽章加以区分。
 
 ## 主要功能
 
 - 两级导航：平台标签页（Mantle / Bybit / Byreal）和类别标签页（插件 / 技能 / MCP）
-- 官方项目以紫色卡片和 ✓ OFFICIAL 徽章突出显示
+- 支持正则表达式的搜索栏，可按名称、描述或标签过滤项目
+- 每个项目详情页展示来自源仓库的 README
+- 详情页右侧固定面板 — 说明每个技能/插件/MCP 的使用时机和功能
 - 一键复制安装命令到剪贴板
+- 详情页返回按钮
 - 构建时 GitHub 数据同步——无需运行时数据库
-- GitHub Actions 定时任务每小时触发增量构建，保持列表内容最新
+- GitHub Actions 定时任务每小时触发构建，保持列表内容最新
 
 ## 快速开始
 
@@ -45,7 +48,7 @@ pnpm dev
 
 ### 使用方法
 
-在浏览器中打开 [http://localhost:3000](http://localhost:3000)。使用顶部的平台标签在 Mantle、Bybit 和 Byreal 之间切换，使用类别标签过滤插件、技能或 MCP 工具。点击任意项目卡片上的安装命令即可复制到剪贴板。
+在浏览器中打开 [http://localhost:3000](http://localhost:3000)。使用顶部的平台标签在 Mantle、Bybit 和 Byreal 之间切换，使用类别标签过滤插件、技能或 MCP 工具。点击任意项目可查看其 README 和安装说明。将鼠标悬停在右侧固定面板上，可查看该项目的使用时机和功能介绍。
 
 ## 配置说明
 

@@ -66,6 +66,7 @@ src/
 │   └── install-command.tsx               # 'use client' (clipboard)
 └── lib/
     ├── github.ts                         # GitHub API fetch (server only)
+    ├── item-guides.ts                    # per-slug "when to use / what it does" content
     └── types.ts                          # shared types
 ```
 
@@ -82,7 +83,7 @@ src/
 - **Plugin**: Claude Code plugin extending Claude's capabilities
 - **Skill**: Reusable prompt/workflow packaged as a skill
 - **MCP**: Model Context Protocol tool — external tool integration
-- **Official item**: Provided directly by Mantle (or respective platform) — shown with `✓ OFFICIAL` badge + purple card
+- **Official item**: Provided directly by Mantle (or respective platform) — shown with `✓ OFFICIAL` orange text badge (no filled background)
 - Platforms: `mantle` | `bybit` | `byreal`
 - Categories: `plugins` | `skills` | `mcp` (plugins featured first)
 
@@ -99,6 +100,16 @@ src/
 - GitHub Actions cron triggers rebuild every hour
 - Official repos: `mantle-xyz/mantle-skills`, `mantle-xyz/mantle-agent-scaffold`
 - `GITHUB_PERSONAL_ACCESS_TOKEN` env var required to avoid rate limiting
+
+---
+
+## Gotchas
+
+- `fs` module cannot be used in client components — move all `lib/data.ts` calls to server components and pass data as props
+- Tags in `SYNC_CONFIGS` are the source of truth — never hardcode `tags: []` in `github.ts`; use `config.tags ?? []`
+- CSS `group-hover` tooltips disappear when mouse moves onto the panel — use `useState` + `onMouseEnter/Leave` on a shared wrapper instead
+- `CategoryInfoTooltip` uses per-slug guide data from `src/lib/item-guides.ts` — add an entry there when adding a new item to `SYNC_CONFIGS`
+- Official item badge is `✓ OFFICIAL` orange text (no filled background)
 
 ---
 

@@ -2,7 +2,7 @@
 title: Mantle Agent Marketplace
 description: Mantle 생태계의 플러그인, 스킬, MCP 툴을 탐색하고 설치하세요.
 author: Kyle (https://github.com/kyle-park-io)
-date: 2026-03-30
+date: 2026-03-31
 ---
 
 **Languages**: [English](README.md) | 한국어 | [中文](README.zh.md)
@@ -13,15 +13,18 @@ date: 2026-03-30
 
 ## 개요
 
-Mantle Agent Marketplace는 개발자가 Mantle 생태계 플랫폼(Mantle, Bybit, Byreal)에서 Claude Code 플러그인, 재사용 가능한 스킬, MCP 툴을 검색하고 설치할 수 있는 Next.js 기반 사이트입니다. 데이터는 빌드 시 GitHub에서 가져오며 GitHub Actions를 통해 매시간 갱신됩니다. 공식 Mantle 아이템은 보라색 카드와 ✓ OFFICIAL 배지로 구별됩니다.
+Mantle Agent Marketplace는 개발자가 Mantle 생태계 플랫폼(Mantle, Bybit, Byreal)에서 Claude Code 플러그인, 재사용 가능한 스킬, MCP 툴을 검색하고 설치할 수 있는 Next.js 기반 사이트입니다. 데이터는 빌드 시 GitHub에서 가져오며 GitHub Actions를 통해 매시간 갱신됩니다. 공식 Mantle 아이템은 ✓ OFFICIAL 배지로 구별됩니다.
 
 ## 주요 기능
 
 - 2단계 내비게이션: 플랫폼 탭(Mantle / Bybit / Byreal)과 카테고리 탭(플러그인 / 스킬 / MCP)
-- 보라색 카드와 ✓ OFFICIAL 배지로 공식 아이템 강조 표시
+- 이름, 설명, 태그로 아이템을 필터링하는 정규식 검색
+- 각 아이템 상세 페이지에서 소스 레포의 README 렌더링
+- 상세 페이지 오른쪽 고정 패널 — 각 스킬/플러그인/MCP의 사용 시점과 기능 설명
 - 설치 명령어 원클릭 클립보드 복사
+- 상세 페이지 뒤로가기 버튼
 - 빌드 타임 GitHub 데이터 동기화 — 런타임 데이터베이스 불필요
-- GitHub Actions 크론으로 매시간 증분 빌드를 트리거하여 목록을 최신 상태로 유지
+- GitHub Actions 크론으로 매시간 빌드를 트리거하여 목록을 최신 상태로 유지
 
 ## 시작하기
 
@@ -45,7 +48,7 @@ pnpm dev
 
 ### 사용법
 
-브라우저에서 [http://localhost:3000](http://localhost:3000)을 엽니다. 상단의 플랫폼 탭으로 Mantle, Bybit, Byreal 간에 전환하고, 카테고리 탭으로 플러그인, 스킬, MCP 툴을 필터링하세요. 아이템 카드의 설치 명령어를 클릭하면 클립보드에 복사됩니다.
+브라우저에서 [http://localhost:3000](http://localhost:3000)을 엽니다. 상단의 플랫폼 탭으로 Mantle, Bybit, Byreal 간에 전환하고, 카테고리 탭으로 플러그인, 스킬, MCP 툴을 필터링하세요. 아이템을 클릭하면 README와 설치 방법을 확인할 수 있습니다. 오른쪽 고정 패널에 마우스를 올리면 해당 아이템의 사용 시점과 기능을 확인할 수 있습니다.
 
 ## 설정
 
