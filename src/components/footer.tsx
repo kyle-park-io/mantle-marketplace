@@ -20,9 +20,7 @@ export function Footer() {
                 height={22}
                 className="object-contain"
               />
-              <p className="font-mono text-sm font-semibold tracking-widest text-orange-500 uppercase">
-                mantle
-              </p>
+              <p className="text-xl font-bold text-stone-900">Mantle</p>
             </div>
             <p className="mt-2 text-sm text-stone-600">
               Browse and install plugins, skills, and MCP tools.

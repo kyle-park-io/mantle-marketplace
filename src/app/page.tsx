@@ -19,7 +19,7 @@ export default function HomePage() {
           Mantle Agent Marketplace
         </h1>
         <p className="mt-4 text-lg text-stone-500">
-          Browse and install plugins, skills, and MCP tools for the Mantle
+          Browse and install Plugins, Skills, and MCP tools for the Mantle
           ecosystem.
         </p>
         <Link

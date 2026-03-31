@@ -10,7 +10,7 @@ export function ItemCard({ item }: ItemCardProps) {
 
   return (
     <Link href={href}>
-      <div className="rounded-lg border border-stone-200 bg-stone-100 p-4 transition-colors hover:border-orange-400">
+      <div className="rounded-lg border border-stone-200 bg-stone-50 p-4 transition-colors hover:border-orange-400">
         <div className="flex items-start justify-between gap-2">
           <h3 className="font-semibold text-stone-900">{item.name}</h3>
           {item.isOfficial && (
