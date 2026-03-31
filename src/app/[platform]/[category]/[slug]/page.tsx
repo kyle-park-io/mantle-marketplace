@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 import { InstallCommand } from '@/components/install-command';
+import { CategoryTabs } from '@/components/category-tabs';
 import { getItemBySlug, getAllItems } from '@/lib/data';
 import { CATEGORY_LABELS } from '@/lib/constants';
 import type { Platform, Category } from '@/lib/types';
@@ -34,6 +35,7 @@ export default async function ItemDetailPage({ params }: PageProps) {
 
   return (
     <div className="mx-auto max-w-4xl space-y-6 px-4 py-10">
+      <CategoryTabs />
       {/* Back button */}
       <Link
         href={`/${platform}/${category}`}
