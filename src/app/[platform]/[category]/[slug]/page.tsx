@@ -133,7 +133,7 @@ export default async function ItemDetailPage({ params }: PageProps) {
           <h2 className="mb-6 text-xs font-semibold uppercase tracking-wide text-stone-400">
             README
           </h2>
-          <div className="prose prose-stone prose-headings:font-semibold prose-a:text-orange-600 prose-code:text-orange-700 prose-code:bg-orange-50 prose-code:border prose-code:border-orange-200 prose-code:rounded prose-pre:bg-orange-50 prose-pre:border prose-pre:border-orange-200 max-w-none">
+          <div className="prose prose-stone prose-headings:font-semibold prose-a:text-orange-600 prose-code:text-stone-100 prose-code:bg-stone-900 prose-code:border prose-code:border-stone-700 prose-code:rounded prose-pre:bg-stone-900 prose-pre:border prose-pre:border-stone-700 max-w-none">
             <ReactMarkdown skipHtml={true}>
               {stripFrontmatter(item.readme)}
             </ReactMarkdown>
