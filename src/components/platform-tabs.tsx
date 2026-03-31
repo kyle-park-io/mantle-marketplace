@@ -20,7 +20,7 @@ export function PlatformTabs() {
   const currentPlatform = params.platform;
 
   return (
-    <div className="flex gap-1 border-b border-gray-200">
+    <div className="flex gap-1 border-b border-stone-200">
       {PLATFORMS.map((platform) => {
         const logo = PLATFORM_LOGOS[platform];
         return (
@@ -29,8 +29,8 @@ export function PlatformTabs() {
             href={`/${platform}/${DEFAULT_CATEGORY}`}
             className={`flex items-center gap-2 px-4 py-2 text-sm font-medium capitalize transition-colors ${
               currentPlatform === platform
-                ? 'border-b-2 border-indigo-500 text-gray-900'
-                : 'text-gray-500 hover:text-gray-900'
+                ? 'border-b-2 border-orange-500 text-stone-900'
+                : 'text-stone-500 hover:text-stone-900'
             }`}
           >
             <Image

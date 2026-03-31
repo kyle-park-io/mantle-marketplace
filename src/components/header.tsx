@@ -2,14 +2,14 @@ import Link from 'next/link';
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/80 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-stone-200 bg-stone-50/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
         {/* Logo */}
         <Link
           href="/"
-          className="flex items-center gap-2 text-gray-900 transition-opacity hover:opacity-70"
+          className="flex items-center gap-2 text-stone-900 transition-opacity hover:opacity-70"
         >
-          <span className="font-mono text-xs font-semibold tracking-widest text-indigo-400 uppercase">
+          <span className="font-mono text-xs font-semibold tracking-widest text-orange-400 uppercase">
             ▸ mantle
           </span>
           <span className="text-gray-600">/</span>
@@ -20,7 +20,7 @@ export function Header() {
         <nav className="flex items-center gap-6">
           <Link
             href="/mantle/plugins"
-            className="text-sm text-gray-500 transition-colors hover:text-gray-900"
+            className="text-sm text-stone-500 transition-colors hover:text-stone-900"
           >
             Marketplace
           </Link>
@@ -28,7 +28,7 @@ export function Header() {
             href="https://github.com/mantle-xyz"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-sm text-gray-500 transition-colors hover:text-gray-900"
+            className="flex items-center gap-1.5 text-sm text-stone-500 transition-colors hover:text-stone-900"
           >
             <svg
               className="h-4 w-4"
