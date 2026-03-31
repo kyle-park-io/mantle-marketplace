@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { DEFAULT_PLATFORM } from '@/lib/constants';
 
@@ -8,10 +9,17 @@ export function Header() {
         {/* Logo */}
         <Link
           href="/"
-          className="text-stone-900 transition-opacity hover:opacity-70"
+          className="flex items-center gap-2.5 transition-opacity hover:opacity-70"
         >
-          <span className="font-serif text-xl font-semibold tracking-tight">
-            Mantle <span className="text-orange-500">Marketplace</span>
+          <Image
+            src="/logos/mantle.svg"
+            alt="Mantle logo"
+            width={24}
+            height={24}
+            className="object-contain"
+          />
+          <span className="text-xl font-bold tracking-tight text-orange-500">
+            Mantle Marketplace
           </span>
         </Link>
 
@@ -19,19 +27,19 @@ export function Header() {
         <nav className="flex items-center gap-6">
           <Link
             href={`/${DEFAULT_PLATFORM}/plugins`}
-            className="text-sm text-stone-500 transition-colors hover:text-stone-900"
+            className="text-sm font-medium text-stone-700 transition-colors hover:text-orange-500"
           >
             Plugins
           </Link>
           <Link
             href={`/${DEFAULT_PLATFORM}/skills`}
-            className="text-sm text-stone-500 transition-colors hover:text-stone-900"
+            className="text-sm font-medium text-stone-700 transition-colors hover:text-orange-500"
           >
             Skills
           </Link>
           <Link
             href={`/${DEFAULT_PLATFORM}/mcp`}
-            className="text-sm text-stone-500 transition-colors hover:text-stone-900"
+            className="text-sm font-medium text-stone-700 transition-colors hover:text-orange-500"
           >
             MCP
           </Link>
@@ -39,7 +47,7 @@ export function Header() {
             href="https://github.com/kyle-park-io/mantle-marketplace"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-sm text-stone-500 transition-colors hover:text-stone-900"
+            className="flex items-center gap-1.5 text-sm font-medium text-stone-700 transition-colors hover:text-orange-500"
           >
             <svg
               className="h-4 w-4"

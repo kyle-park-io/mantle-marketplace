@@ -8,37 +8,37 @@ export function Footer() {
 
   return (
     <footer className="border-t border-stone-200 bg-stone-50">
-      <div className="mx-auto max-w-6xl px-4 py-8">
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
+      <div className="mx-auto max-w-6xl px-4 py-10">
+        <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2">
               <Image
                 src="/logos/mantle.svg"
                 alt="Mantle logo"
-                width={18}
-                height={18}
+                width={22}
+                height={22}
                 className="object-contain"
               />
-              <p className="font-mono text-xs font-semibold tracking-widest text-orange-400 uppercase">
+              <p className="font-mono text-sm font-semibold tracking-widest text-orange-500 uppercase">
                 mantle
               </p>
             </div>
-            <p className="mt-1 text-xs text-stone-500">
+            <p className="mt-2 text-sm text-stone-600">
               Browse and install plugins, skills, and MCP tools.
             </p>
           </div>
 
           {/* Links */}
-          <div className="flex flex-col gap-2">
-            <p className="text-xs font-semibold text-stone-400 uppercase tracking-wider mb-1">
+          <div className="flex flex-col gap-2.5">
+            <p className="text-xs font-semibold text-stone-500 uppercase tracking-wider mb-1">
               Official Mantle
             </p>
             <a
-              href="https://x.com/Mantle_Official/status/2032422157880619166"
+              href="https://x.com/Mantle_Official"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs text-stone-500 transition-colors hover:text-stone-900"
+              className="text-sm text-stone-600 transition-colors hover:text-orange-500"
             >
               𝕏 Mantle Official
             </a>
@@ -46,7 +46,7 @@ export function Footer() {
               href="https://mantle-xyz.github.io/mantle-agent-scaffold/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs text-stone-500 transition-colors hover:text-stone-900"
+              className="text-sm text-stone-600 transition-colors hover:text-orange-500"
             >
               Docs
             </a>
@@ -54,14 +54,14 @@ export function Footer() {
               href="https://github.com/mantle-xyz/mantle-skills"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs text-stone-500 transition-colors hover:text-stone-900"
+              className="text-sm text-stone-600 transition-colors hover:text-orange-500"
             >
               Skills Repo
             </a>
           </div>
         </div>
 
-        <p className="mt-6 text-xs text-stone-400">
+        <p className="mt-8 text-xs text-stone-500">
           © {year} kyle-park-io. All rights reserved.
         </p>
       </div>
