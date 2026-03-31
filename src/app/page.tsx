@@ -11,7 +11,7 @@ export default function HomePage() {
         <h1 className="text-4xl font-bold tracking-tight">
           Mantle Agent Marketplace
         </h1>
-        <p className="mt-4 text-lg text-gray-400">
+        <p className="mt-4 text-lg text-gray-500">
           Browse and install plugins, skills, and MCP tools for the Mantle
           ecosystem.
         </p>
@@ -36,7 +36,7 @@ export default function HomePage() {
               <h2 className="text-xl font-semibold capitalize">{category}</h2>
               <Link
                 href={`/${DEFAULT_PLATFORM}/${category}`}
-                className="text-sm text-indigo-400 hover:text-indigo-300"
+                className="text-sm text-indigo-600 hover:text-indigo-500"
               >
                 View all →
               </Link>

@@ -5,7 +5,7 @@ export function Footer() {
   const year = YEAR;
 
   return (
-    <footer className="border-t border-gray-800 bg-gray-950">
+    <footer className="border-t border-gray-200 bg-white">
       <div className="mx-auto max-w-6xl px-4 py-8">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
           {/* Brand */}
@@ -24,7 +24,7 @@ export function Footer() {
               href="https://github.com/mantle-xyz"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs text-gray-500 transition-colors hover:text-gray-300"
+              className="text-xs text-gray-500 transition-colors hover:text-gray-900"
             >
               GitHub
             </a>
@@ -32,7 +32,7 @@ export function Footer() {
               href="https://github.com/mantle-xyz/mantle-agent-scaffold"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs text-gray-500 transition-colors hover:text-gray-300"
+              className="text-xs text-gray-500 transition-colors hover:text-gray-900"
             >
               Docs
             </a>
@@ -40,14 +40,14 @@ export function Footer() {
               href="https://github.com/mantle-xyz/mantle-skills"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs text-gray-500 transition-colors hover:text-gray-300"
+              className="text-xs text-gray-500 transition-colors hover:text-gray-900"
             >
               Skills Repo
             </a>
           </div>
         </div>
 
-        <p className="mt-6 text-xs text-gray-700">
+        <p className="mt-6 text-xs text-gray-400">
           © {year} Mantle. All rights reserved.
         </p>
       </div>
