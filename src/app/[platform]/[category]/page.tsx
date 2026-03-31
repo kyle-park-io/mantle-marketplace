@@ -34,7 +34,7 @@ export default async function CategoryPage({ params }: PageProps) {
         <SearchBar />
       </div>
       {items.length === 0 ? (
-        <p className="mt-16 text-center text-gray-500">No items found.</p>
+        <p className="mt-16 text-center text-gray-400">No items found.</p>
       ) : (
         <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((item) => (

@@ -27,7 +27,7 @@ export function SearchBar() {
       placeholder="Search..."
       defaultValue={searchParams.get('q') ?? ''}
       onChange={handleSearch}
-      className="w-full rounded-md border border-gray-700 bg-gray-900 px-4 py-2 text-sm text-white placeholder-gray-500 focus:border-indigo-500 focus:outline-none"
+      className="w-full rounded-md border border-gray-300 bg-white px-4 py-2 text-sm text-gray-900 placeholder-gray-400 focus:border-indigo-500 focus:outline-none"
     />
   );
 }

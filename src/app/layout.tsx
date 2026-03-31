@@ -24,7 +24,7 @@ export default function RootLayout({
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
         />
       </head>
-      <body className="min-h-screen bg-gray-950 text-white flex flex-col">
+      <body className="min-h-screen bg-white text-gray-900 flex flex-col">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
