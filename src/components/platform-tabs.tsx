@@ -1,8 +1,19 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { PLATFORMS, DEFAULT_CATEGORY } from '@/lib/constants';
+import type { Platform } from '@/lib/constants';
+
+const PLATFORM_LOGOS: Record<
+  Platform,
+  { src: string; width: number; height: number }
+> = {
+  mantle: { src: '/logos/mantle.svg', width: 20, height: 20 },
+  bybit: { src: '/logos/bybit.png', width: 20, height: 20 },
+  byreal: { src: '/logos/byreal.png', width: 20, height: 20 },
+};
 
 export function PlatformTabs() {
   const params = useParams<{ platform: string }>();
@@ -10,19 +21,29 @@ export function PlatformTabs() {
 
   return (
     <div className="flex gap-1 border-b border-gray-200">
-      {PLATFORMS.map((platform) => (
-        <Link
-          key={platform}
-          href={`/${platform}/${DEFAULT_CATEGORY}`}
-          className={`px-4 py-2 text-sm font-medium capitalize transition-colors ${
-            currentPlatform === platform
-              ? 'border-b-2 border-indigo-500 text-gray-900'
-              : 'text-gray-500 hover:text-gray-900'
-          }`}
-        >
-          {platform}
-        </Link>
-      ))}
+      {PLATFORMS.map((platform) => {
+        const logo = PLATFORM_LOGOS[platform];
+        return (
+          <Link
+            key={platform}
+            href={`/${platform}/${DEFAULT_CATEGORY}`}
+            className={`flex items-center gap-2 px-4 py-2 text-sm font-medium capitalize transition-colors ${
+              currentPlatform === platform
+                ? 'border-b-2 border-indigo-500 text-gray-900'
+                : 'text-gray-500 hover:text-gray-900'
+            }`}
+          >
+            <Image
+              src={logo.src}
+              alt={`${platform} logo`}
+              width={logo.width}
+              height={logo.height}
+              className="rounded-sm object-contain"
+            />
+            {platform}
+          </Link>
+        );
+      })}
     </div>
   );
 }
