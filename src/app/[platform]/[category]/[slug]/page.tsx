@@ -45,7 +45,7 @@ export default async function ItemDetailPage({ params }: PageProps) {
             href={item.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="shrink-0 rounded border border-stone-300 px-3 py-1.5 text-sm text-stone-500 hover:border-gray-400 hover:text-stone-900 transition-colors"
+            className="shrink-0 rounded border border-orange-400 px-3 py-1.5 text-sm text-orange-600 hover:bg-orange-50 transition-colors"
           >
             GitHub →
           </a>

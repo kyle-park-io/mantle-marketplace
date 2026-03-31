@@ -2,6 +2,13 @@ import Link from 'next/link';
 import { ItemCard } from '@/components/item-card';
 import { getItemsByPlatformAndCategory } from '@/lib/data';
 import { DEFAULT_PLATFORM, CATEGORIES } from '@/lib/constants';
+import type { Category } from '@/lib/constants';
+
+const CATEGORY_LABELS: Record<Category, string> = {
+  plugins: 'Plugins',
+  skills: 'Skills',
+  mcp: 'MCP',
+};
 
 export default function HomePage() {
   return (
@@ -17,7 +24,7 @@ export default function HomePage() {
         </p>
         <Link
           href={`/${DEFAULT_PLATFORM}/plugins`}
-          className="mt-8 inline-block rounded-lg bg-orange-600 px-6 py-3 font-medium text-white hover:bg-orange-500 transition-colors"
+          className="mt-8 inline-block rounded-lg border border-orange-500 px-6 py-3 font-medium text-orange-600 hover:bg-orange-50 transition-colors"
         >
           Browse Marketplace
         </Link>
@@ -33,7 +40,9 @@ export default function HomePage() {
         return (
           <div key={category} className="mt-16">
             <div className="mb-4 flex items-center justify-between">
-              <h2 className="text-xl font-semibold capitalize">{category}</h2>
+              <h2 className="text-xl font-semibold">
+                {CATEGORY_LABELS[category]}
+              </h2>
               <Link
                 href={`/${DEFAULT_PLATFORM}/${category}`}
                 className="text-sm text-orange-600 hover:text-orange-500"

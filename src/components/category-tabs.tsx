@@ -3,6 +3,13 @@
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { CATEGORIES } from '@/lib/constants';
+import type { Category } from '@/lib/constants';
+
+const CATEGORY_LABELS: Record<Category, string> = {
+  plugins: 'Plugins',
+  skills: 'Skills',
+  mcp: 'MCP',
+};
 
 export function CategoryTabs() {
   const params = useParams<{ platform: string; category: string }>();
@@ -14,13 +21,13 @@ export function CategoryTabs() {
         <Link
           key={category}
           href={`/${currentPlatform}/${category}`}
-          className={`px-4 py-2 text-sm font-medium capitalize transition-colors ${
+          className={`px-4 py-2 text-sm font-medium transition-colors ${
             currentCategory === category
               ? 'border-b-2 border-orange-500 text-orange-600'
               : 'text-stone-500 hover:text-stone-900'
           }`}
         >
-          {category}
+          {CATEGORY_LABELS[category]}
         </Link>
       ))}
     </div>
