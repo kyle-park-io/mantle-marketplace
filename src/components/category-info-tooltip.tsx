@@ -1,51 +1,22 @@
 'use client';
 
 import type { Category } from '@/lib/types';
-
-interface CategoryInfo {
-  title: string;
-  bullets: string[];
-}
-
-const CATEGORY_INFO: Record<Category, CategoryInfo> = {
-  skills: {
-    title: 'About Skills',
-    bullets: [
-      'Load structured workflows into Claude's context',
-      'Guide Claude through Mantle-specific tasks step by step',
-      'Cover DeFi risk evaluation, portfolio analysis, contract deployment, and more',
-      'Read-only by default — no signing or broadcasting',
-      'Combine multiple skills for complex multi-step operations',
-    ],
-  },
-  plugins: {
-    title: 'About Plugins',
-    bullets: [
-      'Full Claude Code extensions that ship executable code',
-      'Add new slash commands and tools to your agent',
-      'Typically include an MCP server, skill set, and scaffold toolkit',
-      'Install once, use across all your Mantle agent projects',
-      'Official plugins are maintained by Mantle team',
-    ],
-  },
-  mcp: {
-    title: 'About MCP',
-    bullets: [
-      'Connect Claude to live blockchain data via Model Context Protocol',
-      'Read on-chain balances, token info, and transaction history',
-      'Query subgraphs and indexers for historical data',
-      'Simulate transactions before signing',
-      'Resolve and verify contract addresses against the Mantle registry',
-    ],
-  },
-};
+import { CATEGORY_LABELS } from '@/lib/constants';
 
 interface CategoryInfoTooltipProps {
   category: Category;
+  name: string;
+  description: string;
+  tags: string[];
 }
 
-export function CategoryInfoTooltip({ category }: CategoryInfoTooltipProps) {
-  const info = CATEGORY_INFO[category];
+export function CategoryInfoTooltip({
+  category,
+  name,
+  description,
+  tags,
+}: CategoryInfoTooltipProps) {
+  const label = CATEGORY_LABELS[category];
 
   return (
     <div className="group fixed right-6 top-1/2 z-40 -translate-y-1/2">
@@ -64,27 +35,35 @@ export function CategoryInfoTooltip({ category }: CategoryInfoTooltipProps) {
             d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
           />
         </svg>
-        <span className="text-xs font-semibold text-stone-500 group-hover:text-orange-500 [writing-mode:vertical-rl] rotate-180">
-          {info.title}
+        <span className="rotate-180 text-xs font-semibold text-stone-500 group-hover:text-orange-500 [writing-mode:vertical-rl]">
+          About this {label.replace(/s$/, '')}
         </span>
       </div>
 
-      {/* Tooltip panel — slides in from the right */}
+      {/* Tooltip panel */}
       <div
         role="tooltip"
-        className="pointer-events-none absolute right-full top-1/2 mr-0 w-64 -translate-y-1/2 rounded-lg border border-stone-200 bg-white p-4 shadow-lg opacity-0 transition-all duration-200 group-hover:opacity-100"
+        className="pointer-events-none absolute right-full top-1/2 w-72 -translate-y-1/2 rounded-lg border border-stone-200 bg-white p-4 shadow-lg opacity-0 transition-all duration-200 group-hover:opacity-100"
       >
-        <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-orange-500">
-          {info.title}
+        <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-orange-500">
+          {label.replace(/s$/, '')}
         </p>
-        <ul className="space-y-1.5">
-          {info.bullets.map((bullet) => (
-            <li key={bullet} className="flex items-start gap-2 text-xs leading-relaxed text-stone-600">
-              <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-orange-400" />
-              {bullet}
-            </li>
-          ))}
-        </ul>
+        <p className="mb-3 text-sm font-semibold text-stone-900">{name}</p>
+        <p className="mb-3 text-xs leading-relaxed text-stone-600">
+          {description}
+        </p>
+        {tags.length > 0 && (
+          <div className="flex flex-wrap gap-1.5 border-t border-stone-100 pt-3">
+            {tags.map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full bg-stone-100 px-2 py-0.5 text-xs text-stone-500"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
