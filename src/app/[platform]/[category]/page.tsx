@@ -1,4 +1,7 @@
 import { PLATFORMS, CATEGORIES } from '@/lib/constants';
+import { getItemsByPlatformAndCategory } from '@/lib/data';
+import { notFound } from 'next/navigation';
+import type { Platform, Category } from '@/lib/types';
 import { CategoryPageClient } from './category-page-client';
 
 interface PageProps {
@@ -13,5 +16,14 @@ export function generateStaticParams() {
 
 export default async function CategoryPage({ params }: PageProps) {
   const { platform, category } = await params;
-  return <CategoryPageClient platform={platform} category={category} />;
+
+  if (!PLATFORMS.includes(platform as Platform)) notFound();
+  if (!CATEGORIES.includes(category as Category)) notFound();
+
+  const items = getItemsByPlatformAndCategory(
+    platform as Platform,
+    category as Category,
+  );
+
+  return <CategoryPageClient items={items} />;
 }
