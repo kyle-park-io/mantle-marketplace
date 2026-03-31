@@ -39,6 +39,7 @@ export default async function ItemDetailPage({ params }: PageProps) {
       <div className="mt-6">
         <CategoryTabs />
       </div>
+      <CategoryInfoTooltip category={item.category as Category} />
       <div className="mx-auto max-w-4xl space-y-6 px-4 py-10">
         {/* Back button */}
         <Link
@@ -70,7 +71,6 @@ export default async function ItemDetailPage({ params }: PageProps) {
                 <span className="inline-flex items-center rounded-full border border-stone-200 bg-stone-100 px-2.5 py-0.5 text-xs font-medium uppercase tracking-wide text-stone-500">
                   {CATEGORY_LABELS[item.category as Category]}
                 </span>
-                <CategoryInfoTooltip category={item.category as Category} />
                 {item.isOfficial && (
                   <span className="inline-flex items-center gap-1 rounded-full border border-orange-200 bg-orange-50 px-2.5 py-0.5 text-xs font-semibold text-orange-600">
                     ✓ OFFICIAL
