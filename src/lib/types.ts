@@ -23,4 +23,5 @@ export interface GithubSyncConfig {
   category: Category;
   isOfficial: boolean;
   skillPath?: string;
+  tags?: string[];
 }
