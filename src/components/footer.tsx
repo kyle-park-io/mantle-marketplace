@@ -14,13 +14,12 @@ export function Footer() {
           <div>
             <div className="flex items-center gap-2">
               <Image
-                src="/logos/mantle.svg"
+                src="/logos/mantle-logo-full.svg"
                 alt="Mantle logo"
-                width={22}
-                height={22}
+                width={120}
+                height={28}
                 className="object-contain"
               />
-              <p className="text-xl font-bold text-stone-900">Mantle</p>
             </div>
             <p className="mt-2 text-sm text-stone-600">
               Browse and install Plugins, Skills, and MCP tools.
