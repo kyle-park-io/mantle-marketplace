@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 import { InstallCommand } from '@/components/install-command';
+import { CategoryInfoTooltip } from '@/components/category-info-tooltip';
 import { CategoryTabs } from '@/components/category-tabs';
 import { getItemBySlug, getAllItems } from '@/lib/data';
 import { CATEGORY_LABELS } from '@/lib/constants';
@@ -69,6 +70,7 @@ export default async function ItemDetailPage({ params }: PageProps) {
                 <span className="inline-flex items-center rounded-full border border-stone-200 bg-stone-100 px-2.5 py-0.5 text-xs font-medium uppercase tracking-wide text-stone-500">
                   {CATEGORY_LABELS[item.category as Category]}
                 </span>
+                <CategoryInfoTooltip category={item.category as Category} />
                 {item.isOfficial && (
                   <span className="inline-flex items-center gap-1 rounded-full border border-orange-200 bg-orange-50 px-2.5 py-0.5 text-xs font-semibold text-orange-600">
                     ✓ OFFICIAL
