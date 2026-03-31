@@ -4,26 +4,14 @@ import { useState, useCallback, useMemo } from 'react';
 import { ItemCard } from '@/components/item-card';
 import { CategoryTabs } from '@/components/category-tabs';
 import { SearchBar } from '@/components/search-bar';
-import { getItemsByPlatformAndCategory } from '@/lib/data';
-import { PLATFORMS, CATEGORIES } from '@/lib/constants';
-import type { Platform, Category } from '@/lib/types';
-import { notFound } from 'next/navigation';
+import type { MarketplaceItem } from '@/lib/types';
 
 interface Props {
-  platform: string;
-  category: string;
+  items: MarketplaceItem[];
 }
 
-export function CategoryPageClient({ platform, category }: Props) {
+export function CategoryPageClient({ items: allItems }: Props) {
   const [query, setQuery] = useState('');
-
-  if (!PLATFORMS.includes(platform as Platform)) notFound();
-  if (!CATEGORIES.includes(category as Category)) notFound();
-
-  const allItems = getItemsByPlatformAndCategory(
-    platform as Platform,
-    category as Category,
-  );
 
   const filteredItems = useMemo(() => {
     if (!query.trim()) return allItems;
