@@ -160,7 +160,7 @@ async function fetchRepoItem(
     version: pkg.version ?? '0.0.0',
     readme,
     githubUrl: `https://github.com/${config.repo}`,
-    tags: [],
+    tags: config.tags ?? [],
     updatedAt: meta.updated_at,
   };
 }
@@ -189,7 +189,7 @@ async function fetchSkillItem(
     version: skillMeta.version ?? '1.0.0',
     readme: skillReadme,
     githubUrl: `https://github.com/${config.repo}/tree/main/${skillPath}`,
-    tags: [],
+    tags: config.tags ?? [],
     updatedAt: meta.updated_at,
   };
 }
