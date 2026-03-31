@@ -19,11 +19,17 @@ export function GET(request: NextRequest): NextResponse {
   }
 
   if (q) {
+    let regex: RegExp;
+    try {
+      regex = new RegExp(q, 'i');
+    } catch {
+      regex = new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
+    }
     items = items.filter(
       (item) =>
-        item.name.toLowerCase().includes(q) ||
-        item.description.toLowerCase().includes(q) ||
-        item.tags.some((tag) => tag.toLowerCase().includes(q)),
+        regex.test(item.name) ||
+        regex.test(item.description) ||
+        item.tags.some((tag) => regex.test(tag)),
     );
   }
 
