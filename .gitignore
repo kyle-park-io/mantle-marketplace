@@ -39,3 +39,6 @@ REQUEST.md
 # Playwright
 playwright-report/
 test-results/
+
+# Vercel
+.vercel
